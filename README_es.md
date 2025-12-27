@@ -49,6 +49,7 @@ Bienvenido a mi portafolio. Este repositorio alberga una colección integral de 
 
 ## 🛠 Tecnologías
 **Lenguajes:** C/C++, Java, Python, Go, VHDL, SQL, Haskell, JavaScript/React, Bash.
+
 **Herramientas y Ops:** Kubernetes, Docker, Git, Flex/Bison, SageMath, GHDL/GTKWave.
 
 ---

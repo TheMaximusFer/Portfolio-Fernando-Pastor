@@ -47,6 +47,7 @@ Welcome to my portfolio. This repository hosts a comprehensive collection of pro
 
 ## 🛠 Technologies
 **Languages:** C/C++, Java, Python, Go, VHDL, SQL, Haskell, JavaScript/React, Bash.
+
 **Tools & Ops:** Kubernetes, Docker, Git, Flex/Bison, SageMath, GHDL/GTKWave.
 
 ---

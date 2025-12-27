@@ -1,0 +1,412 @@
+.worldpage {
+  min-height: 100vh;
+  background: transparent;
+  color: #f5e9ff;
+}
+
+/* Ventana central */
+.detail-shell {
+  width: min(1150px, 90vw);
+  margin: 18px auto 40px;
+  background: #1b102d;
+  border: 1px solid #3c2a52;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+  padding: 18px;
+}
+
+/* Cabecera (título + autor) */
+.window-head {
+  margin-bottom: 10px;
+  padding: 20px 20px;
+}
+
+.window-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: #f5e9ff;
+}
+
+.window-title .underline {
+  border-bottom: 2px solid #d29fff;
+  padding-bottom: 2px;
+  color: #d29fff;
+  text-shadow: 0 0 14px rgba(90, 70, 246, 0.9);
+}
+
+.window-title .by {
+  font-size: 14px;
+  color: #b9bacf;
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
+/* izquierda flexible + derecha fija */
+.window-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Columna izquierda */
+.window-left {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.section-title {
+  margin: 14px 0 10px 0;
+  font-weight: 800;
+  font-size: 16px;
+  color: #e9ddff;
+}
+
+/* Descripción ancha que ocupa el hueco restante */
+.desc-box {
+  background: #241036;
+  border: 1px solid #3c2a52;
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: #f5e9ff;
+  margin-bottom: 12px;
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+/* Marcadores (lista) */
+.markers-pane {
+  background: #241036;
+  border: 1px solid #3c2a52;
+  border-radius: 8px;
+  padding: 10px;
+  max-height: 380px;
+  overflow: auto;
+}
+
+/* Fila de marcador: mini-grid interno */
+.marker-row {
+  display: grid;
+  grid-template-columns: 96px 1fr 130px 150px;  /* imagen + nombre + dimensión + coords */
+  gap: 14px;
+  align-items: center;
+  background: #7c3aed33;
+  border: 1px solid #3c2a52;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Imagen del marcador*/
+.thumb {
+  width: 96px;
+  height: 96px;
+  border-radius: 8px;
+  background: #140921;
+  border: 2px dashed #b39de9;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb .tag-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Nombre del marcador */
+.marker-main {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.marker-name {
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Dimensión */
+.dimension {
+  background: #1b102d;
+  border: 1px solid #3c2a52;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+  text-align: center;
+  width: 130px;
+  color: #f5e9ff;
+}
+
+.dimension-value {
+  font-weight: 700;
+}
+
+/* Coordenadas */
+.coords {
+  width: 130px;
+  background: #7c3aed55;
+  border: 1px solid #3c2a52;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #f5e9ff;
+}
+
+.coords-title {
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #fdf7ff;
+}
+
+.coords-line {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.coords-line span {
+  color: #eaeaff;
+  font-weight: 800;
+}
+
+/* Columna derecha */
+.window-right {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.right-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Botón de aviso (⚠) */
+.warn {
+  background: #f7d82c;
+  color: #111111;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  padding: 0.08em 0.35em;
+  border: none;
+  cursor: pointer;
+}
+
+/* Galería (imagen grande) */
+.gallery-box {
+  border: 1px solid #3c2a52;
+  background: #1b102d;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Controles de la galería: flechas + puntos */
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #241036;
+  border: 1px solid #3c2a52;
+  border-radius: 8px;
+}
+
+/* Botones de flecha */
+.square-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #241036;
+  border: 1px solid #3c2a52;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 0;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.08s ease;
+  color: #f5e9ff;
+}
+
+.square-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.square-btn:hover {
+  background: #2f1746;
+  border-color: #5a3b86;
+}
+
+.square-btn:active {
+  transform: translateY(1px);
+}
+
+/* Puntos circulares */
+.dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  user-select: none;
+}
+
+.dot {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  padding: 0;
+  line-height: 0;
+  border: 1px solid #8a8b93;
+  background: #6f6f79;
+  display: inline-block;
+  cursor: pointer;
+  box-sizing: content-box;
+}
+
+.dot.active {
+  background: #b6a3ff;
+  border-color: #c2b5ff;
+  box-shadow: 0 0 0 2px rgba(182, 163, 255, 0.25);
+}
+
+/* Tags (bajo galería) */
+.tags-box {
+  background: #3b1b63aa;
+  border: 1px solid #5f4ad8;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 46px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tag-chip {
+  background: #311951;
+  border: 1px solid #5a3b86;
+  color: #e1d6ff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* Descargar – mismo estilo que FINALIZAR */
+.download-btn {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #ffffff;
+  background: #7c3aed;
+  border: 1px solid #5b21b6;
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.55);
+  transition: filter 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.download-btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px rgba(124, 58, 237, 0.9);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.6);
+}
+
+/* Para que la columna de la derecha se ponga abajo si disminuimos el tamaño de ventana */
+@media (max-width: 1100px) {
+  .window-grid { grid-template-columns: 1fr; }
+}
+
+/* Botón de favoritos (estrella) */
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #5b5b66; /* apagado por defecto */
+  margin-left: 10px;
+  padding: 0;
+  line-height: 0;
+  vertical-align: text-bottom;
+  transition: color 0.2s ease, transform 0.1s;
+}
+
+.star-btn:hover {
+  color: #7a7e8d;
+  transform: scale(1.1);
+}
+
+.star-btn.active {
+  color: #f7d82c; /* amarillo activo */
+}
+
+.star-btn.active:hover {
+  color: #ffeaa7;
+}
+
+/* Link al perfil del autor */
+.author-link {
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  color: #a29bfe;
+  text-decoration-color: #a29bfe;
+}
+
+/* --- SCROLLBAR PERSONALIZADA PARA MARCADORES (Y DESCRIPCIÓN) --- */
+
+/* 1. Ancho de la barra */
+.markers-pane::-webkit-scrollbar,
+.desc-box::-webkit-scrollbar { /* Se lo aplico también a la descripción por si es muy larga */
+  width: 8px;
+}
+
+/* 2. Fondo del carril (Track) */
+.markers-pane::-webkit-scrollbar-track,
+.desc-box::-webkit-scrollbar-track {
+  background: rgba(27, 16, 45, 0.5); /* Morado muy oscuro/transparente */
+  border-radius: 4px;
+}
+
+/* 3. El "dedo" o barra que se mueve (Thumb) */
+.markers-pane::-webkit-scrollbar-thumb,
+.desc-box::-webkit-scrollbar-thumb {
+  background-color: #3c2a52; /* Morado base (igual que los bordes) */
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* 4. Efecto al pasar el ratón por la barra */
+.markers-pane::-webkit-scrollbar-thumb:hover,
+.desc-box::-webkit-scrollbar-thumb:hover {
+  background-color: #7c3aed; /* Morado brillante (igual que el botón descargar) */
+}

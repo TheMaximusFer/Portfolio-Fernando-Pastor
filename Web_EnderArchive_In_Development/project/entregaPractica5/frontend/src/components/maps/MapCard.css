@@ -1,0 +1,244 @@
+/* src/components/maps/MapCard.css */
+
+/* Contenedor principal de la tarjeta */
+.map-card-container {
+    background-color: #1e1531; /* Fondo oscuro "Ender" (Igual que el sidebar) */
+    border: 1px solid #3c2a52; /* Borde morado oscuro sutil */
+    border-radius: 12px;       /* Bordes más redondeados */
+    overflow: hidden; 
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    cursor: pointer;
+    margin-top: 7px;
+    /* Sombra suave morada */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
+    transition: all 0.3s ease; /* Transición suave para todo */
+}
+
+/* Efecto Hover: Se levanta y brilla un poco el borde */
+.map-card-container:hover {
+    transform: translateY(-5px); /* Se mueve hacia arriba */
+    background-color: #251a3a;   /* Se aclara ligeramente */
+    border-color: #9219F5;       /* El borde se vuelve neón */
+    box-shadow: 0 8px 20px rgba(146, 25, 245, 0.2); /* Resplandor morado */
+}
+
+/* Área de la imagen (Placeholder) */
+.map-image-placeholder {
+    width: 100%;
+    height: 150px; 
+    background-color: #150f24; /* Un tono más oscuro que la tarjeta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5d4d7a; /* Color del texto placeholder apagado */
+    font-weight: bold;
+    border-bottom: 1px solid #3c2a52;
+}
+
+.map-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* LA CLAVE: Escala la imagen para llenar el hueco sin deformarse */
+    object-position: center; /* Centra la imagen */
+    display: block; /* Elimina espacios fantasma debajo de la imagen */
+}
+
+/* Contenido de texto y metadatos */
+.map-card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Contenedor para alinear Título - Autor */
+.map-header-row {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;        
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.map-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #e8dff5; /* Blanco tintado de lavanda (más suave) */
+    flex: 1; 
+}
+
+/* Estilo del creador */
+.map-creator {
+    font-size: 0.85rem;
+    color: #c9a0dc; 
+    white-space: nowrap; 
+    background: rgba(0, 0, 0, 0.3); 
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    border: 1px solid #3c2a52; 
+    transition: all 0.2s ease; /* Añadimos transición */
+}
+
+.clickable-creator {
+    cursor: pointer;
+    z-index: 2; /* Aseguramos que esté por encima */
+}
+
+.clickable-creator:hover {
+    background-color: #3c2a52;       /* Fondo un poco más claro */
+    color: #fff;                     /* Texto blanco brillante */
+    border-color: #9219F5;           /* Borde neón al pasar el mouse */
+    box-shadow: 0 0 5px rgba(146, 25, 245, 0.4); /* Pequeño resplandor */
+}
+.map-creator small {
+    color: #888; 
+    font-weight: 400;
+    margin-right: 3px;
+}
+
+.map-description {
+    color: #b3a8c4; /* Gris moráceo para texto secundario */
+    font-size: 0.9em;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Fila de Acciones */
+.map-actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.status-tag {
+    font-size: 0.75em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-tag.is-shared {
+    background-color: rgba(40, 167, 69, 0.2); 
+    color: #4cd168; /* Verde brillante */
+    border: 1px solid #28a745;
+}
+
+.status-tag.is-private {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #ff6b6b; /* Rojo brillante */
+    border: 1px solid #dc3545;
+}
+
+.share-button {
+    background-color: transparent;
+    color: #b3a8c4;
+    border: 1px solid #3c2a52;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.share-button:hover {
+    background-color: #9219F5; /* Tu color de acento */
+    color: #fff;
+    border-color: #9219F5;
+    box-shadow: 0 0 10px rgba(146, 25, 245, 0.4);
+}
+
+/* Fila de Especificaciones */
+.map-specs-row {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 15px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #3c2a52; /* Separador morado oscuro */
+}
+
+.spec-item {
+    font-size: 0.8em;
+    color: #8e84a3; /* Texto terciario */
+    font-weight: 500;
+    background: rgba(0,0,0,0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* ... (MANTÉN TODO TU CSS ANTERIOR IGUAL) ... */
+
+/* --- AÑADIDOS PARA LOS BOTONES FLOTANTES --- */
+
+/* Aseguramos que el contenedor sea referencia para posicionamiento absoluto */
+.map-card-container {
+    position: relative; 
+}
+
+/* Contenedor de los botones (esquina superior derecha) */
+.owner-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column; /* Uno debajo del otro */
+    gap: 8px; /* Espacio entre la X y el lápiz */
+    z-index: 10; /* Por encima de la imagen */
+}
+
+/* Estilo base de los botones circulares */
+.action-circular-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #3c2a52;
+    background: transparent;
+    color: #e8dff5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 16px;
+    padding: 0;
+    backdrop-filter: blur(4px);
+}
+
+.action-circular-btn:hover {
+    background: #3c2a52;
+    border-color: #9219F5;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(146, 25, 245, 0.6);
+}
+
+/* Estilo específico para Eliminar (X) - Rojo al hover */
+.delete-btn:hover {
+    background: rgba(82, 26, 26, 0.8);
+    border-color: #ff4757;
+    color: #ff4757;
+    box-shadow: 0 0 8px rgba(255, 71, 87, 0.6);
+}
+
+/* Estilo específico para Editar (Lápiz) */
+.edit-btnn {
+    font-size: 18px;
+    align-self: flex-start;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid #3c2a52;
+    color: #b3a8c4;
+    cursor: pointer;
+    transition: all .2s;
+    font-weight: 600;
+}

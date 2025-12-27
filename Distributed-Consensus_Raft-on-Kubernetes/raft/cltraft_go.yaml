@@ -1,0 +1,13 @@
+
+#Cliente automático, conectado al servicio Raft
+apiVersion: v1
+kind: Pod
+metadata:
+  name: clientraft
+spec:
+  restartPolicy: Never
+  containers:
+  - name: cltraft
+    image: localhost:5001/cltraft:latest
+    ports:
+    - containerPort: 7000

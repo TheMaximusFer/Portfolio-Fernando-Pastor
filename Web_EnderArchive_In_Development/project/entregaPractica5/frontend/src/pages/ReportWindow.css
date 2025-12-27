@@ -1,0 +1,132 @@
+/* Backdrop morado intenso */
+.report-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 10, 60, 0.78);
+  display: grid;
+  place-items: center;
+  z-index: 99999;
+}
+
+/* Tarjeta con morados y degradado suave */
+.report-card {
+  width: min(980px, 94vw);
+  background: linear-gradient(180deg, #2b176a 0%, #1f0f5a 100%);
+  color: #fff;
+  border: 1px solid #d9d2ff;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
+  padding: 24px;
+  position: relative;
+}
+
+/* Botón cerrar (círculo con X centrada) */
+.report-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: rgba(141,119,255,.18);
+  border: 2px solid #e6e0ff;
+  cursor: pointer;
+}
+.report-close::before,
+.report-close::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60%;
+  height: 2px;
+  background: #f1ecff;
+  transform-origin: center;
+}
+.report-close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.report-close::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+.report-close:hover   { background: rgba(141,119,255,.28); }
+
+/* Título */
+.report-title {
+  margin: 0 48px 18px 0;
+  font-size: 28px;
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: #cbbaff;
+}
+.report-title .u { text-decoration: underline; }
+
+/* Sección motivo */
+.report-section { margin-top: 12px; }
+
+.report-label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: #efe9ff;
+}
+
+.report-textarea {
+  width: 100%;
+  height: 260px;
+  background: #f4f0ff;
+  color: #2a1e66;
+  border: 1px solid #b39cff;
+  border-radius: 8px;
+  padding: 12px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.report-textarea::placeholder { color: #7b6bbd; }
+.report-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(123,104,255,.38);
+  border-color: #8f7aff;
+}
+
+/* Botones (mismos estilos que el modal de sanción) */
+.report-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 24px;
+}
+.btn {
+  height: 64px;
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn-ghost {
+  background: #c7b8ff;
+  color: #221657;
+  border-color: #e7e0ff;
+}
+.btn-ghost:hover { filter: brightness(1.08); }
+
+.btn-primaryy {
+  padding: 0 16px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #9019df, #7a68ff);
+  border: 1px solid #5e4fe0;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+.btn-primaryy:hover { filter: brightness(1.08); }
+.btn-primaryy:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .report-card { width: 94vw; padding: 18px; }
+  .report-title { font-size: 22px; }
+  .report-textarea { height: 200px; }
+  .report-actions { grid-template-columns: 1fr; }
+}

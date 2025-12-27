@@ -1,0 +1,48 @@
+
+#Service "headless" para que Kubernetes dé de alta los Pods en el DNS.
+apiVersion: v1
+kind: Service
+metadata:
+  name: raft-service
+  labels:
+    app: raft
+spec:
+  clusterIP: None
+  selector: #tiene que coincidir con label definido en los Pods.
+    app: raft
+  ports:
+  - port: 6000
+    name: raft-port
+    protocol: TCP
+    targetPort: 6000
+---
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: raft
+spec:
+  serviceName: raft-service
+  replicas: 3
+  podManagementPolicy: Parallel
+  selector:
+    matchLabels:
+      app: raft          # tiene que corresponder a .spec.template.metadata.labels
+  template:
+    metadata:
+      labels:
+        app: raft
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: srvraft
+        image: localhost:5001/srvraft:latest
+        env:
+        - name: MINOMBREPOD  #primera réplica raft-0, segunda raft-1, etc...
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        command:
+        - /usr/local/bin/srvraft 
+        - $(MINOMBREPOD)
+        ports:
+        - containerPort: 6000

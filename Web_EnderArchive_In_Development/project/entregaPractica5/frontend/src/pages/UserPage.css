@@ -1,0 +1,178 @@
+/* src/pages/UserPage.css */
+
+/* Reset y base */
+*{box-sizing:border-box}
+
+body, .username, .about-textarea, .section-title {
+  color: #e8dff5;
+}
+
+/* Panel superior */
+.top-panel{
+  display:grid;                   
+  grid-template-columns:520px 1fr;
+  gap:24px;                       
+  padding:28px 32px 0;            
+}
+
+/* Zona perfil */
+.profile-box{
+  display:flex;             
+  align-items:center; 
+  gap:20px;
+  padding:20px; 
+  background: #1e1531; 
+  border: 1px solid #3c2a52; 
+  border-radius:14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Avatar de usuario*/
+.avatar{
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;             
+  border: 2px solid #3c2a52;
+  background: #0b0514; 
+  flex: 0 0 96px;               
+}
+
+.avatar-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           
+  display: block;
+}
+
+.avatar .avatar-circle{ display: none; }
+
+/* Datos de identidad */
+.identity{
+  display:flex;               
+  flex-direction:column;
+  gap:10px;                 
+}
+
+.username{
+  margin:0;
+  font-size:28px;
+  font-weight:700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Botón (si existiera en vista pública, ej: Reportar) */
+.edit-btn{
+  align-self:flex-start;
+  padding:8px 14px;
+  border-radius:8px;
+  background: #150f24;
+  border: 1px solid #3c2a52;
+  color: #b3a8c4;
+  cursor:pointer;        
+}
+
+.about-box{
+  background: #1e1531;
+  border: 1px solid #3c2a52;
+  border-radius:14px;
+  padding:16px;
+  min-height:120px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.about-title{
+  font-weight:600;
+  margin-bottom:8px;
+  color: #9219F5;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+}
+
+.about-textarea{
+  width:100%;
+  height:120px;
+  resize:vertical;
+  background: #0b0514; /* Fondo oscuro terminal */
+  color: #e8dff5;
+  border: 1px solid #3c2a52;
+  border-radius:10px;
+  padding:12px;
+  font-family: inherit;
+}
+/* Evitar que parezca editable en UserPage */
+.about-textarea:disabled, .about-textarea[readonly] {
+    opacity: 1; /* Que se lea bien */
+    cursor: default;
+}
+
+/* Secciones */
+.section{
+  padding:26px 32px;
+}
+
+.section-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.section-title{
+  margin:0;
+  font-size:18px;
+  font-weight:700;
+  color: #e8dff5;
+  border-left: 4px solid #9219F5;
+  padding-left: 10px;
+}
+
+/* --- SCROLLBARS --- */
+.scroll-row{
+  display:flex; gap:14px; overflow-x:auto; padding-bottom:15px;
+  scroll-snap-type:x proximity;
+}
+
+.scroll-row::-webkit-scrollbar { height: 10px; }
+.scroll-row::-webkit-scrollbar-track { background: rgba(30, 21, 49, 0.5); border-radius: 5px; }
+.scroll-row::-webkit-scrollbar-thumb { background-color: #3c2a52; border-radius: 5px; border: 1px solid rgba(0,0,0,0.2); }
+.scroll-row::-webkit-scrollbar-thumb:hover { background-color: #9219F5; }
+
+.show-scrollbar{scrollbar-color:#3c2a52 #1e1531; scrollbar-width:thin;}
+
+.card-wrap{
+  flex:0 0 auto; 
+  scroll-snap-align:start; 
+  width:260px;
+}
+
+/* --- Galería --- */
+.gallery-card{
+  width: 260px;             
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.gallery-img{
+  width: 100%;
+  margin-top: 5px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  border: 1px solid #3c2a52;
+  transition: transform 0.2s;
+}
+
+.gallery-img:hover {
+  transform: scale(1.02);
+  border-color: #9219F5;
+  box-shadow: 0 0 15px rgba(146, 25, 245, 0.3);
+}
+
+.error-text {
+  margin-left: 20px;
+  color: #ff6b6b;
+}

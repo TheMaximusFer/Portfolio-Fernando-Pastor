@@ -1,0 +1,118 @@
+/* src/components/modals/DeleteConfirmationModal.css */
+
+/* Backdrop morado intenso (Igual que ReportWindow) */
+.delete-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 10, 60, 0.78);
+  display: grid;
+  place-items: center;
+  z-index: 99999;
+}
+
+/* Tarjeta con morados y degradado suave */
+.delete-card {
+  width: min(600px, 90vw); /* Un poco más estrecha que la de reportar */
+  background: linear-gradient(180deg, #2b176a 0%, #1f0f5a 100%);
+  color: #fff;
+  border: 1px solid #d9d2ff;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
+  padding: 30px;
+  position: relative;
+  text-align: center; /* Centramos el texto para este tipo de avisos */
+}
+
+/* Botón cerrar (círculo con X centrada) */
+.delete-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: rgba(141,119,255,.18);
+  border: 2px solid #e6e0ff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.delete-close::before,
+.delete-close::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60%;
+  height: 2px;
+  background: #f1ecff;
+  transform-origin: center;
+}
+.delete-close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.delete-close::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+.delete-close:hover   { background: rgba(255, 71, 87, 0.28); border-color: #ff4757; }
+
+/* Título */
+.delete-title {
+  margin: 10px 0 20px 0;
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+}
+.delete-title .highlight {
+  color: #ff6b6b; /* Rojo claro para el nombre del mundo */
+  text-decoration: underline;
+  text-decoration-color: #ff4757;
+}
+
+/* Texto de advertencia */
+.delete-warning {
+  font-size: 18px;
+  color: #dcdde1;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* Botones */
+.delete-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.btn-modal {
+  height: 74px; /* Un pelín más bajos que los de reportar */
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: filter 0.2s;
+}
+
+/* Botón Cancelar (Ghost) */
+.btn-cancel {
+  background: #c7b8ff;
+  color: #221657;
+  border-color: #e7e0ff;
+}
+.btn-cancel:hover { filter: brightness(1.1); }
+
+/* Botón Eliminar (DANGER - Rojo/Naranja) */
+.btn-danger {
+  background: linear-gradient(180deg, #ff4757 0%, #c0392b 100%);
+  border: 1px solid #ff6b6b;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+}
+.btn-danger:hover { filter: brightness(1.1); }
+.btn-danger:disabled {
+  opacity: 0.6;
+  filter: grayscale(0.8);
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .delete-actions { grid-template-columns: 1fr; }
+}

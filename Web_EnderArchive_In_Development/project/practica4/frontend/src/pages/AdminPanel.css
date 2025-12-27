@@ -1,0 +1,347 @@
+/* ===== Ventana FIJA (igual estilo morado) ===== */
+.adminpage{
+  min-height:100vh;
+  background:transparent;
+  color:#f1f1f3;
+}
+
+/* Ventana fija: alto estable respecto al viewport */
+.admin-shell{
+  width:min(1280px,95vw);
+  height:calc(100vh - 140px); 
+  min-height:640px;
+  margin:18px auto 28px;
+  background:#2b2b31;
+  border:1px solid #3a3a42;
+  border-radius:14px;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+  padding:18px 22px 26px;
+
+  display:flex; 
+  flex-direction:column;
+  overflow:hidden; 
+}
+
+/* Título */
+.admin-h1{
+  margin:4px 0 14px;
+  font-size:42px;
+  font-weight:900;
+  text-align:center;
+  letter-spacing:1px;
+  color:#fff;
+  text-decoration:underline;
+  text-decoration-color:#cbbaff;
+}
+
+.admin-grid{
+  flex:1 1 auto;
+  min-height:0;
+  display:grid;
+  grid-template-columns:1.2fr 1fr 0.9fr;
+  gap:22px;
+  align-items:stretch; 
+}
+
+
+.admin-card{
+  background:#23232a;
+  border:1px solid #3a3a42;
+  border-radius:12px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+  height:100%;
+}
+
+/* Cabeceras */
+.card-head{
+  background:#8a0bd2;
+  color:#fff;
+  font-weight:900;
+  padding:10px 14px;
+  font-size:20px;
+  letter-spacing:.4px;
+  text-align:center;
+  user-select:none;
+}
+
+/* ===== Columna 1: Estadísticas (gráficas pegadas abajo) ===== */
+.stats-body{
+  flex:1 1 auto;
+  min-height:0;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden; 
+}
+
+.stats-list{
+  list-style:none;
+  margin:0 0 12px;
+  padding:0 4px;
+}
+.stats-list li{ margin:6px 0; }
+
+.charts{
+  margin-top:auto;
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:18px;
+  align-items:center;
+}
+.chart-wrap{
+  width:200px; height:200px;
+  border:1px solid #3a3a42;
+  border-radius:12px;
+  background:#1f1f26;
+}
+.chart-bars-wrap{
+  width:100%; height:200px;
+  border:1px solid #3a3a42;
+  border-radius:12px;
+  background:#1f1f26;
+}
+
+/* ===== Columna 2: Logs + sancionar (scroll interno en logs) ===== */
+.logs-box{
+  flex:1 1 auto;
+  min-height:0;
+  overflow:auto; 
+  padding:12px;
+  background:#2d2d35;
+  border-top:1px solid #3a3a42;
+  border-bottom:1px solid #3a3a42;
+}
+.log-line{
+  padding:6px 2px;
+  border-bottom:1px dashed #3e3e45;
+}
+.log-line:last-child{ border-bottom:none; }
+
+.quick-sanction{
+  padding:12px 12px 14px;
+}
+.quick-sanction label{
+  display:block; margin-bottom:6px; font-weight:800;
+}
+.qs-row{
+  display:grid; grid-template-columns:1fr auto; gap:10px;
+}
+.qs-input{
+  height:40px; border-radius:8px;
+  border:1px solid #5b5d6b; background:#1f1f26; color:#e9e9f3;
+  padding:0 10px;
+}
+.btn-primary{
+  height:40px; padding:0 16px; border-radius:10px;
+  background:linear-gradient(180deg,#9019df 0%,#7a68ff 100%);
+  border:1px solid #5e4fe0; color:#fff; font-weight:800; cursor:pointer;
+}
+.btn-primary:hover{ filter:brightness(1.08); }
+
+/* ===== Columna 3: Denuncias (scroll interno en la lista) ===== */
+/* src/pages/AdminPanel.css */
+
+/* ... (Mantén lo anterior igual hasta llegar a Denuncias) ... */
+
+/* ===== SECCIÓN DENUNCIAS (Estilo Ventanitas) ===== */
+
+.reports-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 16px;
+  
+  /* CAMBIO CLAVE: Usamos Grid para que sean "ventanitas" */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  align-content: start; /* Para que no se estiren si hay pocas */
+}
+
+/* La tarjeta individual (La Ventanita) */
+.report-item {
+  position: relative;
+  background: #25252e; /* Fondo oscuro */
+  border: 1px solid #6c5ce7; /* Borde morado neón */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Sombra fuerte para dar profundidad */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.report-item:hover {
+  transform: translateY(-3px); /* Efecto flotante al pasar el mouse */
+  box-shadow: 0 12px 24px rgba(108, 92, 231, 0.25);
+}
+
+/* Cabecera falsa de la ventana */
+.report-item::before {
+  content: "";
+  display: block;
+  height: 6px;
+  background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+  width: 100%;
+}
+
+/* Botón X para cerrar */
+.close-x {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  background: #3e3e48;
+  border: 1px solid #5a5d6b;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 2;
+}
+.close-x:hover {
+  background: #ff4757;
+  border-color: #ff4757;
+}
+.close-x::before, .close-x::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+.close-x::before { transform: rotate(45deg); }
+.close-x::after { transform: rotate(-45deg); }
+
+/* Contenido de texto */
+.report-lines {
+  padding: 16px 16px 8px 16px;
+  font-size: 14px;
+  color: #dcdde1;
+}
+
+.report-row {
+  margin-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lbl {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #a29bfe; /* Morado claro para etiquetas */
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.val {
+  font-weight: 500;
+  color: #fff;
+  word-break: break-word; /* Evita que nombres largos rompan la caja */
+}
+
+/* Estilo especial para el reportado (rojo/naranja) */
+.val.reported {
+  color: #ff6b6b;
+  font-weight: 700;
+}
+
+/* La caja de la descripción (Mensaje) */
+.report-desc-box {
+  background: #2f2f38;
+  border-left: 3px solid #fdcb6e; /* Línea amarilla */
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+  font-style: italic;
+  font-size: 13px;
+  color: #dfe6e9;
+  min-height: 40px;
+}
+
+/* Botón de acción (Contexto) */
+.report-cta {
+  padding: 12px 16px;
+  background: #2f2f38;
+  border-top: 1px solid #3a3a42;
+  text-align: right;
+}
+
+.btn-context {
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-context:hover {
+  background: #5649c0;
+}
+/* Botón X circular */
+/* src/pages/AdminPanel.css */
+
+.close-x {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  
+  /* FUERZA EL CÍRCULO PERFECTO */
+  width: 28px;
+  height: 28px;
+  min-width: 28px; /* Evita que se aplaste */
+  min-height: 28px;
+  padding: 0;      /* Elimina relleno extraños */
+  border-radius: 50%;
+  
+  background: #3e3e48;
+  border: 1px solid #5a5d6b;
+  cursor: pointer;
+  
+  /* Centrado perfecto de la X */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  transition: all 0.2s ease;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.close-x:hover {
+  background: #ff4757;
+  border-color: #ff4757;
+  transform: scale(1.1) rotate(90deg); /* Pequeña animación chula */
+}
+
+/* La X dibujada con CSS */
+.close-x::before, .close-x::after {
+  content: "";
+  position: absolute;
+  width: 14px; /* Un poco más grande la cruz */
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+.close-x::before { transform: rotate(45deg); }
+.close-x::after { transform: rotate(-45deg); }
+
+/* ===== Responsive: apilar columnas ===== */
+@media (max-width:1200px){
+  .admin-shell{ height:calc(100vh - 120px); }
+  .admin-grid{ grid-template-columns:1fr; }
+  .charts{ grid-template-columns:1fr; }
+}

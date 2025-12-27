@@ -1,0 +1,232 @@
+A
+indep1
+Sensor principal activado
+1
+INDependiente
+-.-.-.-.-
+A
+indep2
+Alarma secundaria
+2
+INDependiente
+-.-.-.-.-
+A
+dep1
+Detección de movimiento en zona 1
+3
+DEPendiente
+indep1
+A
+dep2
+Luces encendidas en zona 1
+4
+DEPendiente
+indep1
+A
+dep3
+Alarma sonora en subzona 1A
+5
+DEPendiente
+dep1
+A
+dep4
+Cámara activada en zona 2
+6
+DEPendiente
+indep2
+A
+dep5
+Notificación push para subzona 1A
+7
+DEPendiente
+dep3
+A
+extra_indep
+Evento extra independiente
+8
+INDependiente
+-.-.-.-.-
+A
+dep1
+Duplicado intento
+9
+DEPendiente
+indep1
+C
+dep2
+Nueva desc para dep2
+10
+C
+no_existe
+Desc inválida
+11
+O
+indep1
+O
+dep5
+E
+dep3
+E
+extra_indep
+E
+no_existe
+I
+dep4
+I
+indep2
+D
+dep3
+indep2
+D
+dep5
+dep5
+D
+dep6
+indep1
+B
+dep5
+B
+dep1
+B
+no_existe
+LT
+LD
+indep1
+LD
+dep1
+LD
+indep2
+LD
+no_existe
+A
+nuevo_dep_fallo
+Esto debería fallar
+10
+DEPendiente
+supervisor_inexistente
+A
+auto_dependiente
+Esto también debería fallar
+11
+DEPendiente
+auto_dependiente
+A
+este_es_un_nombre_muy_largo_para_un_evento_independiente_para_ver_como_lo_maneja_el_programa
+Un nombre muy largo
+12
+INDependiente
+-.-.-.-.-
+A
+prioridad_cero
+Prueba de prioridad cero
+0
+INDependiente
+-.-.-.-.-
+C
+evento_inexistente_para_cambiar
+Nueva descripción
+13
+C
+indep1
+Esta es una descripción muy larga para un evento existente para ver cómo lo maneja el programa y si causa algún desbordamiento de búfer u otros problemas.
+14
+D
+indep2
+evento_inexistente_para_dependencia
+D
+extra_indep
+extra_indep
+A
+circ_A
+Circular A
+15
+INDependiente
+-.-.-.-.-
+A
+circ_B
+Circular B
+16
+INDependiente
+-.-.-.-.-
+D
+circ_A
+circ_B
+D
+circ_B
+circ_A
+B
+indep1
+B
+evento_inexistente_para_borrar
+LD
+evento_inexistente_para_ld
+LD
+extra_indep
+LT
+A
+cadena_A
+Raíz de la cadena
+20
+INDependiente
+-.-.-.-.-
+A
+cadena_B
+Medio de la cadena
+21
+DEPendiente
+cadena_A
+A
+cadena_C
+Hoja de la cadena
+22
+DEPendiente
+cadena_B
+LD
+cadena_A
+LD
+cadena_B
+I
+cadena_B
+LT
+LD
+cadena_A
+O
+cadena_B
+B
+cadena_C
+O
+cadena_B
+B
+cadena_B
+E
+cadena_A
+E
+cadena_B
+D
+circ_A
+cadena_A
+LD
+circ_B
+LD
+cadena_A
+B
+circ_B
+E
+circ_B
+B
+cadena_A
+LD
+cadena_A
+A
+item_vacio
+
+0
+INDependiente
+-.-.-.-.-
+O
+item_vacio
+B
+indep2
+LD
+indep2
+LT

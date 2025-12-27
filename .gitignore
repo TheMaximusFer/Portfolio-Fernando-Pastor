@@ -1,0 +1,47 @@
+# --- IDEs y Sistema ---
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- Java ---
+target/
+*.class
+*.jar
+*.war
+.mvn/wrapper/
+
+# --- Node.js / Web ---
+node_modules/
+dist/
+build/
+.npm
+.vite/
+vendor/
+
+# --- Python ---
+__pycache__/
+*.pyc
+venv/
+.env
+
+# --- C/C++ ---
+*.o
+*.exe
+*.out
+*.obj
+
+# --- ARCHIVOS SENSIBLES (Privacidad) ---
+uploads/
+**/uploads/
+**/photos/
+**/profilePicture/
+*.log
+*.tmp
+
+# --- Específicos de tus carpetas ---
+maven-archiver/
+surefire-reports/
+generated-sources/
+maven-status/

@@ -1,0 +1,115 @@
+/* src/RegisterAccount.css */
+
+body {
+    
+    background: linear-gradient(
+        to top,
+        rgba(36, 0, 70, 0.8), /* Transparente en la parte superior */
+        rgb(21, 21, 21, 1)  /* Sólido en la parte inferior */
+    );
+    
+    background-color: #9D4EDD;
+    margin: 0;
+    padding: 0;
+}
+/* Contenedor de la página para centrar el formulario */
+.register-page-container {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;     /* Centrar verticalmente */
+    min-height: 100vh;       /* Asegura que ocupe al menos toda la altura de la vista */
+    float: left;
+    width: 100%;
+    background-color: rgba(0,0,0,0); /* Color de fondo general de la imagen de Balsamiq */
+    padding: 20px; /* Un poco de padding para evitar que toque los bordes */
+    box-sizing: border-box; /* Para incluir padding y border en el tamaño total */
+    
+}
+
+/* El recuadro principal del formulario */
+.register-form-box {
+    background-color: #2b2b2b; /* Color de fondo del recuadro del formulario */
+    padding: 40px;
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    box-shadow: 4px 4px 10px #151515; /* Sombra sutil */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 650px; /* Ancho máximo para que no sea demasiado grande en pantallas amplias */
+    color: #ffffff; /* Color del texto dentro del recuadro */
+    font-family: Arial, sans-serif; /* Fuente similar a la de Balsamiq */
+    align-self: center;
+}
+
+/* Título "Crear Cuenta" */
+.form-title {
+    color: rgb(104, 30, 179); /* Un color morado similar al de Balsamiq */
+    font-size: 2.8em; /* Tamaño de fuente más grande */
+    margin-bottom: 30px;
+    text-align: left; /* Alineación a la izquierda */
+    font-weight: bold;
+}
+
+/* Grupo de formulario (label + input) */
+.form-group {
+    margin-bottom: 20px; /* Espacio entre cada campo */
+}
+
+.form-group label {
+    display: block; /* Para que la etiqueta esté en su propia línea */
+    margin-bottom: 8px; /* Espacio entre la etiqueta y el input */
+    font-size: 1.1em;
+    color: #f0f0f0; /* Color de las etiquetas */
+    text-align: left;
+}
+
+/* Estilo para los campos de input y textarea */
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444; /* Borde más oscuro */
+    border-radius: 4px;
+    background-color: #444; /* Fondo de los inputs */
+    color: #ffffff; /* Color del texto que se escribe */
+    font-size: 1em;
+    box-sizing: border-box; /* Crucial para que el padding no afecte el width total */
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+}
+
+.form-input::placeholder {
+    color: #bbb; /* Color del texto placeholder */
+}
+
+.form-input:focus {
+    border-color: rgb(90, 24, 154); /* Borde morado al enfocar */
+    box-shadow: 0 0 0 2px rgba(201, 160, 220, 0.4); /* Sombra de enfoque */
+}
+
+/* Estilo específico para el textarea */
+.textarea-input {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 80px; /* Altura mínima para el textarea */
+}
+
+/* Botón "Crear cuenta" */
+.submit-button {
+    background-color: rgb(90, 24, 154); /* Color morado del botón */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%; /* Ocupa todo el ancho */
+    margin-top: 30px; /* Espacio superior */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animación al interactuar */
+}
+
+.submit-button:hover {
+    background-color: #b07de0; /* Morado más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Efecto ligero de "levantar" */
+}
+
+.submit-button:active {
+    background-color: #9a65c4; /* Morado más oscuro al hacer clic */
+    transform: translateY(0);
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="EsquemaSisInf">
+	<entities>
+		<data-source id="postgres-jdbc-19995d49df2-2750bce1193c202a">
+			<entity id="1" name="favourites" fq-name="&quot;sisInf&quot;.favourites">
+				<path name="sisInf"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="2" name="marker" fq-name="&quot;sisInf&quot;.marker">
+				<path name="sisInf"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="3" name="photo" fq-name="&quot;sisInf&quot;.photo">
+				<path name="sisInf"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="4" name="report" fq-name="&quot;sisInf&quot;.report">
+				<path name="sisInf"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="5" name="user" fq-name="&quot;sisInf&quot;.&quot;user&quot;">
+				<path name="sisInf"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="6" name="world" fq-name="&quot;sisInf&quot;.world">
+				<path name="sisInf"/>
+				<path name="postgres"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="username" fq-name="&quot;sisInf&quot;.favourites.username" type="fk" pk-ref="5" fk-ref="1"/>
+		<relation name="denuncia_user_fk" fq-name="&quot;sisInf&quot;.report.denuncia_user_fk" type="fk" pk-ref="5" fk-ref="4"/>
+		<relation name="denuncia_user_fk_1" fq-name="&quot;sisInf&quot;.report.denuncia_user_fk_1" type="fk" pk-ref="5" fk-ref="4"/>
+		<relation name="world_user_fk" fq-name="&quot;sisInf&quot;.world.world_user_fk" type="fk" pk-ref="5" fk-ref="6"/>
+		<relation name="favoritos_world_fk" fq-name="&quot;sisInf&quot;.favourites.favoritos_world_fk" type="fk" pk-ref="6" fk-ref="1"/>
+		<relation name="marcadores_world_fk" fq-name="&quot;sisInf&quot;.marker.marcadores_world_fk" type="fk" pk-ref="6" fk-ref="2"/>
+		<relation name="foto_world_fk" fq-name="&quot;sisInf&quot;.photo.foto_world_fk" type="fk" pk-ref="6" fk-ref="3"/>
+	</relations>
+</diagram>

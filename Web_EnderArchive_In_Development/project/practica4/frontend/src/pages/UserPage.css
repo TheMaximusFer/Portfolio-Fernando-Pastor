@@ -1,0 +1,153 @@
+
+/* Reset y base */
+*{box-sizing:border-box}
+
+
+/* Panel superior con nombre de usuario, foto, editar perfil y acerca de mí.**/
+.top-panel{
+  display:grid;                   
+  grid-template-columns:520px 1fr;/* dos columnas: fija y flexible */ 
+  gap:24px;                       /* espacio entre columnas */  
+  padding:28px 32px 0;            /* espacio interno */
+}
+
+/* Zona perfil */
+.profile-box{
+  display:flex;             
+  align-items:center; 
+  gap:20px;
+  padding:20px; 
+  background:#2c2c31; 
+  border:1px solid #3b3b42; 
+  border-radius:14px;
+}
+
+/* Avatar de usuario*/
+.avatar{
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;             /* recorta la imagen */
+  border: 1px solid #3b3b42;/* borde alrededor */ 
+  background: #222329;        /* fondo por si no hay imagen */
+  flex: 0 0 96px;               /* evita que se estire */
+}
+
+.avatar-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* rellena sin deformar */
+  display: block;
+}
+
+/* por si antes añadimos la silueta con ::before/::after */
+.avatar .avatar-circle{
+  display: none; 
+}
+
+/* Datos de identidad: nombre de usuario, botón editar */
+.identity{
+  display:flex;               
+  flex-direction:column;
+  gap:10px;                 /* espacio entre nombre y botón */
+}
+
+/* Texto de nombre de usuario */
+.username{
+  margin:0;
+  font-size:28px;
+  font-weight:700;
+}
+
+/* Botón editar perfil */
+.edit-btn{
+  align-self:flex-start;
+  padding:8px 14px;
+  border-radius:8px;
+  border:1px solid #3b3b42;
+  background:#2a2a2f;
+  color:#f2f2f2;
+  cursor:pointer;         /*cambio de cursor al pasar por encima */
+}
+
+.about-box{
+  background:#2c2c31;
+  border:1px solid #3b3b42;
+  border-radius:14px;
+  padding:16px;
+  min-height:120px;
+}
+
+.about-title{
+  font-weight:600;
+  margin-bottom:8px;
+  color:#a6a6ad;
+}
+
+.about-textarea{
+  width:100%;
+  height:120px;
+  resize:vertical;
+  background:#23232a;
+  color:#f2f2f2;
+  border:1px solid #3b3b42;
+  border-radius:10px;
+  padding:12px;
+}
+
+/* Secciones */
+.section{
+  padding:26px 32px;
+}
+
+.section-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.section-title{
+  margin:0;
+  font-size:18px;
+  font-weight:700;
+}
+
+
+/* Lógica del carrusel con scrollbar visible (adaptada)*/
+.scroll-row{
+  display:flex; gap:14px; overflow-x:auto; padding-bottom:8px;
+  scroll-snap-type:x proximity;
+}
+.scroll-row::-webkit-scrollbar{height:10px}              /* altura de la barra */
+.scroll-row::-webkit-scrollbar-track{background:#26262c;border-radius:10px;}
+.scroll-row::-webkit-scrollbar-thumb{background:#3a3a42;border-radius:10px;}
+.scroll-row::-webkit-scrollbar-thumb:hover{background:#4a4a54;}
+.show-scrollbar{scrollbar-color:#3a3a42 #26262c; scrollbar-width:thin;} /* Firefox */
+.card-wrap{
+  flex:0 0 auto; 
+  scroll-snap-align:start; 
+  width:260px;
+}
+
+
+/* --- Galería: solo imagen --- */
+.gallery-card{
+  width: 260px;             /* coincide con los mundos para alinear */
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.gallery-img{
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  border: 1px solid #3b3b42;
+}
+
+.error-text {
+  margin-left: 20px;
+}

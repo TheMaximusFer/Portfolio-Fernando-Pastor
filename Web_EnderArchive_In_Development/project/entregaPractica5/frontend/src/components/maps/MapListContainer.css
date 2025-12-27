@@ -1,0 +1,66 @@
+/* src/components/maps/MapListContainer.css */
+
+.map-list-container {
+    /* 1. Ocupar todo el alto disponible definido en el padre (HomePage) */
+    height: 100%; 
+    
+    /* 2. Activar scroll vertical SOLO si los mapas no caben */
+    overflow-y: auto; 
+    
+    /* Ajustes visuales */
+    padding-right: 10px; 
+    padding-bottom: 20px;
+    box-sizing: border-box; 
+}
+
+.maps-grid {
+    display: grid;
+    /* Grid responsive: columnas mínimas de 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px; 
+    row-gap: 25px;
+    width: 100%;
+}
+
+/* --- ESTILOS DE LA BARRA DE SCROLL (Personalizado Ender) --- */
+
+/* Ancho de la barra */
+.map-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Fondo de la barra (el carril) */
+.map-list-container::-webkit-scrollbar-track {
+    background: rgba(30, 21, 49, 0.5); /* Muy oscuro y transparente */
+    border-radius: 4px;
+}
+
+/* El "pulgar" (lo que mueves) */
+.map-list-container::-webkit-scrollbar-thumb {
+    background-color: #3c2a52; /* Morado oscuro por defecto */
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+/* El "pulgar" al pasar el ratón */
+.map-list-container::-webkit-scrollbar-thumb:hover {
+    background-color: #9219F5; /* Se ilumina en tu morado neón */
+}
+
+/* Mensajes de estado */
+.loading-message,
+.error-message,
+.no-results-message {
+    text-align: center;
+    color: #b3a8c4;
+    padding: 50px;
+    font-size: 1.1em;
+}
+
+.no-results-message p {
+    background: rgba(30, 21, 49, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #3c2a52;
+    display: inline-block;
+}

@@ -1,0 +1,46 @@
+services:
+  # --- SERVICIO 1: TU BACKEND SPRING BOOT ---
+  app:
+    build: ./EnderArchiveFinalBackend
+    container_name: enderarchive-backend
+    ports:
+      - "8080:8080" # Mapea puerto 8080 del PC al 8080 del contenedor
+    environment:
+      # Sobrescribimos la config de application.properties para Docker
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/enderdb
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - db
+    volumes:
+      - ./EnderArchiveFinalBackend/uploads:/app/uploads
+
+  # --- SERVICIO 2: BASE DE DATOS POSTGRESQL ---
+  db:
+    image: postgres:17-alpine
+    container_name: enderarchive-db
+    environment:
+      - POSTGRES_DB=enderdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    #ports:
+    #  - "5432:5432"
+    volumes:
+      # Persistencia de datos (para no perder la DB al reiniciar)
+      - postgres_data:/var/lib/postgresql/data
+      # Usamos el archivo init.sql como archivo de inicio de la base de datos
+      # este tiene todas las operaciones sql para iniciar la base de datos por completo
+      - ./EnderArchiveFinalBackend/init.sql:/docker-entrypoint-initdb.d/init.sql
+      
+
+  frontend:
+    build: ./frontend # Ruta a la carpeta del frontend
+    container_name: enderarchive-frontend
+    ports:
+      - "3000:80" 
+    depends_on:
+      - app # Esperamos a que el backend arranque
+
+volumes:
+  postgres_data:

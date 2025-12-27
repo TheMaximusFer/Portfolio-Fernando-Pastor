@@ -1,0 +1,45 @@
+MEMORIA DE ACCIONES P5-SD:
+
+1º TODO LO DEL ANEXO 1
+    ./kind-with-registry.sh
+
+2º CREACIÓN DE FICHERO DE CLIENTE 
+    (Y cltraft cambia de ubicación a raft/pkg/pkgclt y cambia de nombre a pkgclt)
+
+3º CREACIÓN DE LOS DOCKERFILE (IMÁGENES DEL CLIENTE Y SERVIDOR RAFT: Dockerfile.cltraft y Dockerfile.svcraft)
+
+4º COMPILAR EJECUTABLES DE SERVIDOR Y CLIENTE EN raft/
+    CGO_ENABLED=0 go build -o srvraft cmd/srvraft/main.go
+    CGO_ENABLED=0 go build -o cltraft pkg/cltraft/main.go
+
+5º SUBIR LAS IMÁGENES AL REGISTRO(REPOSITORIO) DE IMÁGENES kind-registry.
+    #---Imagen del servidor Raft---
+    docker build -t localhost:5001/srvraft -f Dockerfile.srvraft .
+    docker push localhost:5001/srvraft
+
+    #---Imagen del cliente Raft ---
+    docker build -t localhost:5001/cltraft -f Dockerfile.cltraft .
+    docker push localhost:5001/cltraft
+
+6º APLICAMOS LOS MANIFIESTOS DE CONFIGURACIÓN DE KUBERNETES (.yaml):
+    kubectl apply -f srvraft_go.yaml
+    kubectl apply -f cltraft_go.yaml
+
+8º EJECUCIÓN DE LAS PRUEBAS MEDIANTE EL SCRIPT BASH
+    bash test.bash
+
+9º QUITAR TODO
+    kind delete cluster
+    docker stop kind-registry
+    docker rm kind-registry
+    
+10º OTROS COMANDOS ÚTILES PARA VER EL ESTADO DE DOCKER O KUBERNETES
+    kubectl get pods -o wide
+    docker ps -a -s
+    kubectl get nodes -o wide
+    kubectl logs -f nombre_pod (clientraft, raft-0, raft-1, raft-2) 
+
+
+11º COMANDOS POR PROBLEMAS DE DISTRIBUCIÓN "too many open files" (NO IMPORTANTE):
+    sudo sysctl fs.inotify.max_user_watches=524288
+    sudo sysctl fs.inotify.max_user_instances=512

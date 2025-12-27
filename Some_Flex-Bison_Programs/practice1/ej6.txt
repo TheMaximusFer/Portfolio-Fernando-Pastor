@@ -1,0 +1,4 @@
+Práctica 1, ej6. AUTORES: Fernando Pastor Peralta (897113) Fabrizio Bryan Duarte Jáuregui (736857) NOTA: En el primero, permitiremos los espacios al inicio y fin de la línea.
+egrep '^[ ]*[0-9].*[0-9][ ]*$' t.txt
+egrep '^[ ]*[a-zA-Z][a-zA-Z0-9]*[ ]+[0-9][0-9]?[0-9]?[.][0-9][0-9]?[0-9]?[.][0-9][0-9]?[0-9]?[.][0-9][0-9]?[0-9]?[ ]*$' t.txt
+egrep '[0-9]*[13579]([^0-9]|$)' t.txt

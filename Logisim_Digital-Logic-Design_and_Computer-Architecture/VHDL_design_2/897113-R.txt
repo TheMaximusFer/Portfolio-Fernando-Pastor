@@ -1,0 +1,17 @@
+lw r1, 4(r0)			;08010004	r1=4
+lw r2, 8(r0)			;08020008	r2=32
+jal r10, 3			;140A0003  --> 000101 00000 01010 0000000000000011
+nop				;00000000
+beq r1, r1, -1			;1000FFFF
+nop				;00000000
+
+lw r4, 56(r3)			;08640038	r4 = nuevo dato
+add r3, r3, r1			;04611800	r3 += 4		<-- poniendo esta instrucción antes del add r5 nos arromos un nop
+add r5, r5, r4			;04A42800	r5 += nuevo dato
+sw r5, 0(r0)			;0C050000			<--podemos sustituir el nop por el sw y nos ahorramos 
+beq r2, r3, 3			;10430003
+nop				;00000000
+beq r0, r0, -7			;1000FFF9
+nop				;00000000
+ret r10				;19400000  --> 000110 01010 00000 0000000000000000
+nop				;00000000

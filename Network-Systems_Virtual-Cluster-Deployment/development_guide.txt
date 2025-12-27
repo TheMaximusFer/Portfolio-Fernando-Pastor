@@ -1,0 +1,153 @@
+▶Instalamos sudo en todas las máquinas:
+	- Desde root --> apt install sudo
+	- Modificamos sudoers --> sudo visudo --> ponemos la línea "as ALL=(ALL) NOPASSWD: ALL" (da todos los permisos de sudo al usuario as y sin necesidad de meter la contaseña).
+	- Para verificar que as tiene acceso a sudo, desde as --> sudo whoami (debe saler "root")
+
+▶Modificamos los adaptadores de red de VirtualBox:
+	-debian1:
+		* Adaptador 1: NAT
+		* Adaptador 2: Host-only network
+		* Adaptador 3: Red interna (interna1)
+		* Adaptador 4: Red interna (interna2)
+	-debian2:
+		* Adaptador 1: Red interna (interna1)
+	-debian3:
+		* Adaptador 1: Red interna (interna2)
+	-debian4:
+		* Adaptador 1: Red interna (interna2)
+	-debian5:
+		* Adaptador 1: Red interna (interna3)
+	-debian6:
+		* Adaptador 1: Red interna (interna2)
+		* Adaptador 2: Red interna (interna3)
+
+▶Modificamos las interfaces de red de cada máquina:
+(para ver estado actual de todas las interfaces "ip -c a")
+sudo nano /etc/network/interfaces y añadimos en cada máquina:
+	-debian1:
+		#HOST-ONLY
+		auto enp0s8
+		iface enp0s8 inet static
+			address 192.168.56.1
+			netmask 255.255.255.0
+			network 192.168.56.0
+
+		#interna1
+		auto enp0s9
+		iface enp0s9 inet static
+			address 10.0.1.1
+			netmask 255.255.255.0
+			network 10.0.1.0
+
+		#interna2
+		auto enp0s10
+		iface enp0s10 inet static
+			address 10.0.2.1
+			netmask 255.255.255.0
+			network 10.0.2.0
+		(por alguna razón el enp0s3 estaba desactivado asi que puse "sudo ip link set enp0s3 up && sudo dhclient enp0s3" (me lo dio chatgpt))
+		
+	-debian2:
+		#interna1
+		auto enp0s3
+		iface enp0s3 inet static
+			address 10.0.1.2/24
+			gateway 10.0.1.1
+	-debian3 y debian4:
+		#interna2
+		auto enp0s3
+		iface enp0s3 inet dhcp
+	-debian5:
+		#interna3
+		auto enp0s3
+		iface enp0s3 inet static
+			address 10.0.3.2/24
+			gateway 10.0.3.1
+	-debian6:
+		#interna2
+		auto enp0s3
+		iface enp0s3 inet static
+			address 10.0.2.2/24
+			gateway 10.0.2.1	
+	
+		#interna3
+		auto enp0s8
+		iface enp0s8 inet static
+			address 10.0.3.1/24
+
+▶Habilitamos la reexpedición de paquetes entre nodos en debian1(router) y debian6(reexpedición de paquetes para o por debian5).
+   Vemos si la variable está habilitada o no mediante --> cat  /proc/sys/net/ipv4/ip_forward --> como está a 0, habilitamos permanentemente ip_forward:
+	añadimos "net.ipv4.ip_forward=1" en /etc/sysctl.conf y después ejecutamos "sysctl -p /etc/sysctl.conf"	en terminal --> ahora ip_forward=1 siempre.
+Le decimos al router(debian1) que para llegar a cualquier host 10.0.3.x, se deben enviar los paquete a debian6(10.0.2.2) --> metemos en /etc/network/interfaces "up ip route add 10.0.3.0/24 via 10.0.2.2 dev enp0s10"
+
+
+▶Creamos y configuramos el servidor DHCP en debian1:
+	-Lo instalamaos --> sudo apt update
+			    sudo apt install isc-dhcp-server
+	-Le decimos al servicio isc-dhcp-server que tiene que mandar las IP por interna2 --> modificamos /etc/default/isc-dhcp-server --> "INTERFACESv4="enp0s10""
+	-Ponemos en el fichero de configuración /etc/dhcp/dhcpd.conf la subred a la que queremos proporcionar las IP´s, qué rango de IP´s, dirección de broadcast y el gateway que tendrán las máquinas:
+	subnet 10.0.2.0 netmask 255.255.255.0 {
+		range 10.0.2.100 10.0.2.200;
+		option broadcast-address 10.0.2.255;
+		option routers 10.0.2.1;
+	}
+	y lo habilitamos para iniciarse automáticamente al arrancar el sistema --> sudo systemctl enable isc-dhcp-server
+
+▶Creamos el firewall en debian1:
+  Creamos el script /usr/local/sbin/fw.sh:
+	#!/bin/sh
+	#INICIAMOS TABLA Y POLÍTICAS
+	iptables -t nat -F
+	iptables -F
+	iptables -P INPUT DROP
+	iptables -P FORWARD DROP
+	iptables -P OUTPUT ACCEPT
+
+	#BUCLE LOCAL
+	iptables -A INPUT -i lo -j ACCEPT
+	iptables -A OUTPUT -o lo -j ACCEPT
+
+	#PERMITIMOS TODA CONEXIÓN ENTRE NODOS DE LA INTRANET
+	iptables -A FORWARD -i enp0s9 -j ACCEPT
+	iptables -A FORWARD -i enp0s10 -j ACCEPT
+	iptables -A INPUT -i enp0s9 -j ACCEPT
+	iptables -A INPUT -i enp0s10 -j ACCEPT
+
+	#PERMITIMOS TRÁFICO DE SALIDA
+	#DESDE LA INTRANET HACIA INTERNET
+	iptables -A FORWARD -i enp0s9 -o enp0s3 -j ACCEPT
+	iptables -A FORWARD -i enp0s10 -o enp0s3 -j ACCEPT
+	#DESDE LA INTRANET HACIA HOST-ONLY
+	iptables -A FORWARD -i enp0s9 -o enp0s8 -j ACCEPT
+	iptables -A FORWARD -i enp0s10 -o enp0s8 -j ACCEPT
+
+	#PERMITIMOS RESPUESTAS DE LA EXTRANET, SOLO PARA CONEXIONES YA ESTABLECIDAS POR LA INTRANET
+	iptables -A INPUT  -m state --state ESTABLISHED,RELATED -j ACCEPT
+	iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+	#PERMITIMOS TRÁFICO HACIA EL SERVIDOR WEB Y EL SERVIDOR SSH RESPECTIVAMENTE
+	iptables -A FORWARD -d 10.0.1.2 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
+	iptables -A FORWARD -d 10.0.1.2 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
+	iptables -A FORWARD -d 10.0.3.2 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+	#NAT
+	#IP DE SALIDA COMO DIRECCIÓN PÚBLICA DEL FIREWALL.
+	iptables -t nat -A POSTROUTING -o enp0s3 -j SNAT --to 192.168.56.2
+	iptables -t nat -A POSTROUTING -o enp0s8 -j SNAT --to 192.168.56.2 
+	#IP DE ENTRADA CAMBIA DEPENDIENDO DEL PUERTO DEL PAQUETE
+	iptables -t nat -A PREROUTING -i enp0s8 -p tcp --dport 80 -j DNAT --to-destination 10.0.1.2:80
+	iptables -t nat -A PREROUTING -i enp0s8 -p tcp --dport 443 -j DNAT --to-destination 10.0.1.2:443
+	iptables -t nat -A PREROUTING -i enp0s8 -p tcp --dport 22 -j DNAT --to-destination 10.0.3.2:22
+
+	echo "Creado."
+  Después ejecutamos el script (para ver si todo correcto "sudo iptables -L -n" y "sudo iptables -t nat -L -n" (me lo dio chatgpt)).
+  Instalamos "sudo apt install iptables-persistent" y guardamos las reglas en /etc/iptables/rules.v4.
+
+▶Creamos el servidor web (apache2):
+	-Descargamos --> "sudo apt install apache2"
+	-Lo encendemos --> "sudo service apache2 start"
+	-Para comprobar --> "sudo service apache2 status"
+
+▶Creamos el servidor ssh:
+	-Descargamos --> "sudo apt install openssh-server"
+	-Lo encendemos --> "sudo systemctl enable --now ssh"

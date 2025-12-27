@@ -1,0 +1,8 @@
+VER ENDERARCHIVE EN NAVEGADOR:
+1º Docker --> encender entregapractica
+2º Entrar en entregaPractica5/frontend en cmd y poner:
+	docker-compose up -d --build 
+	docker-compose up -d --build app
+3º Entrar en http://localhost:3000/
+
+PARA VER SOLO ESTILO DE LA PÁGINA (SIN DATOS EN ELLA): npm run dev (npm intall si no deja al principio)

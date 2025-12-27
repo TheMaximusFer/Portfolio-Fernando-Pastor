@@ -1,0 +1,5 @@
+Tiempos:
+conv3x3_operar_u8s8_C     108,750+432,333+22,167         = 563,25  us
+conv3x3_operar_u8s8_ARM_C 109,083+430,000+14,167	 = 553,25  us
+conv3x3_operar_u8s8_ARM                                  = 434,167 us
+conv3x3_operar_u8s8_THB                                  = 567,000 us 

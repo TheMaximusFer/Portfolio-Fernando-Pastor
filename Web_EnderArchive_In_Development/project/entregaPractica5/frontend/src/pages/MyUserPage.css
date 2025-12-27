@@ -1,0 +1,295 @@
+/* src/pages/MyUserPage.css */
+
+/* Reset y base */
+*{box-sizing:border-box}
+
+/* Texto general claro */
+body, .username, .about-textarea, .section-title {
+  color: #e8dff5; /* Blanco tintado de lavanda */
+}
+
+/* Panel superior con nombre de usuario, foto, editar perfil y acerca de mí */
+.top-panel{
+  display:grid;                   
+  grid-template-columns:520px 1fr; 
+  gap:24px;                       
+  padding:28px 32px 0;            
+}
+
+/* Zona perfil */
+.profile-box{
+  display:flex;             
+  align-items:center; 
+  gap:20px;
+  padding:20px; 
+  
+  /* CAMBIO: Fondo Ender */
+  background: #1e1531; 
+  border: 1px solid #3c2a52; 
+  border-radius:14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Avatar de usuario */
+.avatar{
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;             
+  border: 2px solid #3c2a52; /* Borde un poco más visible */
+  background: #0b0514;       /* Fondo muy oscuro */
+  flex: 0 0 96px;               
+}
+
+.avatar-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           
+  display: block;
+}
+
+.avatar .avatar-circle{ display: none; }
+
+/* Datos de identidad */
+.identity{
+  display:flex;               
+  flex-direction:column;
+  gap:10px;                 
+}
+
+/* Texto de nombre de usuario */
+.username{
+  margin:0;
+  font-size:28px;
+  font-weight:700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Botón editar perfil */
+.edit-btn{
+  align-self:flex-start;
+  padding:8px 14px;
+  border-radius:8px;
+  
+  /* Estilo botón oscuro */
+  background: #150f24;
+  border: 1px solid #3c2a52;
+  color: #b3a8c4;
+  
+  cursor:pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+.edit-btn:hover {
+  background: #2e1065;
+  border-color: #9219F5;
+  color: #fff;
+  box-shadow: 0 0 8px rgba(146, 25, 245, 0.4);
+}
+
+/* Caja "Acerca de mí" */
+.about-box{
+  background: #1e1531;
+  border: 1px solid #3c2a52;
+  border-radius:14px;
+  padding:16px;
+  min-height:120px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.about-title{
+  font-weight:600;
+  margin-bottom:8px;
+  color: #9219F5; /* Título neón */
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+}
+
+.about-textarea{
+  width:100%;
+  height:120px;
+  resize:vertical;
+  
+  /* Input estilo terminal */
+  background: #0b0514;
+  color: #e8dff5;
+  border: 1px solid #3c2a52;
+  border-radius:10px;
+  padding:12px;
+  font-family: inherit;
+}
+
+.about-textarea:focus {
+  outline: none;
+  border-color: #9219F5;
+}
+
+/* Secciones */
+.section{
+  padding:26px 32px;
+}
+
+.section-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.section-title{
+  margin:0;
+  font-size:18px;
+  font-weight:700;
+  color: #e8dff5;
+  border-left: 4px solid #9219F5; /* Acento visual a la izquierda */
+  padding-left: 10px;
+}
+
+/* --- SCROLLBARS PERSONALIZADAS (Estilo Ender) --- */
+
+/* La barra horizontal del carrusel */
+.scroll-row {
+  display:flex; gap:14px; overflow-x:auto; padding-bottom:15px; /* Más espacio para la barra */
+  scroll-snap-type:x proximity;
+}
+
+/* Webkit (Chrome, Edge, Safari) */
+.scroll-row::-webkit-scrollbar {
+    height: 10px; /* Un poco más gruesa para que sea fácil de agarrar */
+}
+
+.scroll-row::-webkit-scrollbar-track {
+    background: rgba(30, 21, 49, 0.5); 
+    border-radius: 5px;
+}
+
+.scroll-row::-webkit-scrollbar-thumb {
+    background-color: #3c2a52; 
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.scroll-row::-webkit-scrollbar-thumb:hover {
+    background-color: #9219F5; /* Neón al pasar el mouse */
+}
+
+/* Firefox */
+.show-scrollbar {
+  scrollbar-color: #3c2a52 #1e1531; 
+  scrollbar-width: thin;
+}
+
+.card-wrap{
+  flex:0 0 auto; 
+  scroll-snap-align:start; 
+  width:260px;
+}
+
+/* --- Galería --- */
+.gallery-card{
+  width: 260px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.gallery-img{
+  margin-top: 5px;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  border: 1px solid #3c2a52;
+  transition: transform 0.2s;
+}
+
+.gallery-img:hover {
+  transform: scale(1.02);
+  border-color: #9219F5;
+  box-shadow: 0 0 15px rgba(146, 25, 245, 0.3);
+}
+
+.error-text {
+  margin-left: 20px;
+  color: #ff6b6b;
+}
+
+/* --- EDITAR PERFIL --- */
+
+.avatar-wrapper {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex: 0 0 96px;
+}
+
+.avatar-edit-label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #9219F5; /* Borde neón cuando se edita */
+  position: relative;
+}
+
+.avatar-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(146, 25, 245, 0.6); /* Morado semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.avatar-edit-label:hover .avatar-overlay {
+  opacity: 1;
+}
+
+.editable-field {
+  border: 1px solid #9219F5 !important; /* Borde neón */
+  background: #150f24 !important;
+  box-shadow: 0 0 10px rgba(146, 25, 245, 0.1);
+}
+.editable-field:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(146, 25, 245, 0.4);
+}
+
+/* Botones de acción */
+.save-btn {
+  background: #6c5ce7; 
+  border: 1px solid #5649c0;
+  color: white;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.save-btn:hover {
+  background: #5649c0;
+  box-shadow: 0 0 10px rgba(108, 92, 231, 0.4);
+}
+
+.cancel-btn {
+  background: transparent;
+  border: 1px solid #ff4757;
+  color: #ff4757;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.cancel-btn:hover {
+  background: rgba(255, 71, 87, 0.1);
+}

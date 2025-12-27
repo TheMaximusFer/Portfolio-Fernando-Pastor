@@ -1,0 +1,87 @@
+/* src/components/layout/Header.css */
+
+/* Contenedor principal del Header */
+.app-header {
+    display: flex; /* Habilita el layout flexible */
+    justify-content: space-between; /* Espacia los grupos (Historial, Logo, Perfil) */
+    align-items: center; /* Centra los elementos verticalmente */
+    
+    background-color: #10031e; /* Un color muy oscuro para la barra */
+    padding: 10px 20px; /* Padding vertical y horizontal */
+    height: 90px; /* Altura fija de la barra */
+    color: #f0f0f0; /* Color del texto/iconos */
+    border-bottom: 1px solid #333; /* Separador sutil */
+}
+
+/* Grupo de botones de historial (Izquierda) */
+.header-history {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+}
+
+.history-button {
+    background: #333;
+    color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+/* Sección del Logo (Centro) */
+.header-logo img {
+  padding-top: 20px;
+  height: 130px;          /* Un poco más grande */
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;       /* IMPRESCINDIBLE: Muestra la mano al pasar el mouse */
+  transition: transform 0.2s; /* Suaviza la animación */
+}
+
+/* Efecto al pasar el mouse por encima */
+.header-logo img:hover {
+  transform: scale(1.05); /* Crece un 5% */
+  opacity: 0.9;           /* Se aclara un poco */
+}
+
+
+/* Botón de Perfil/Configuración (Derecha) */
+.header-profile {
+    display: flex;       /* IMPORTANTE: Flex, no Grid */
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    width: auto;
+}
+
+.header-profile .profile-login-button {
+
+    background: rgb(104, 30, 179);
+    color: #f0f0f0;
+    border-radius: 5%; /* Para hacerlo redondo */
+    width: 150px;
+    height: 45px;
+    font-size: 1.2em;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8px 15px;
+}
+
+.header-profile .logout-register-button {
+
+    background: none;
+    color: #f0f0f0;
+    border: 2px solid #555;
+    border-radius: 5%; /* Para hacerlo redondo */
+    width: 150px;
+    height: 45px;
+    font-size: 1.2em;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8px 15px;
+}

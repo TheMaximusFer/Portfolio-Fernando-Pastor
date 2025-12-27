@@ -1,0 +1,65 @@
+-----LISTADO: 0
+-----
+****INFORME: 611111111
+****DESCONOCIDO
+-----LISTADO: 0
+-----
+****INFORME: 611111111
+****DESCONOCIDO
+NO BORRADO: 611111111
+NO CAMBIADO: 611111111
+NO LOCALIZADO: 222222222
+INTRODUCIDO: [ 222222222 ] --- Primer Informe
+CAMBIADO: [ 222222222 ;;; 2 ;;; 0 ] --- Cambio al primero --- Cambio del comentario del primero ---
+NO CAMBIADO: 662980443
+NO INTRODUCIDO: [ 222222222 ] --- Error, este telefono ya ha sido añadido
+****INFORME: 222222222
+Cambio al primero
+[ 1 --> Cambio del comentario del primero ---];;
+****TOTALES: Act->( 2 ) Cons->( 1 ) Coment->( 1 )
+INTRODUCIDO: [ 333333333 ] --- Segundo Telefono
+DESCONOCIDO: 662980443
+NO LOCALIZADO: 699404040
+INTRODUCIDO: [ 444444444 ] --- Tercer Telefono
+INTRODUCIDO: [ 555555555 ] --- Cuarto Telefono
+LOCALIZADO: [ 444444444 ;;; 1 ;;; 1 ] --- ( 0 ) --- Tercer Telefono ---
+CAMBIADO: [ 444444444 ;;; 2 ;;; 1 ] --- Cambio en el tercero --- Sigue siendo el tercero ---
+-----LISTADO: 0
+[ 222222222 ;;; 2 ;;; 1 ] --- ( 1 ) --- Cambio al primero ---
+[ 333333333 ;;; 1 ;;; 0 ] --- ( 0 ) --- Segundo Telefono ---
+[ 444444444 ;;; 2 ;;; 1 ] --- ( 1 ) --- Cambio en el tercero ---
+[ 555555555 ;;; 1 ;;; 0 ] --- ( 0 ) --- Cuarto Telefono ---
+-----
+****INFORME: 444444444
+Cambio en el tercero
+[ 1 --> Sigue siendo el tercero ---];;
+****TOTALES: Act->( 2 ) Cons->( 2 ) Coment->( 1 )
+BORRADO: 444444444
+-----LISTADO: -1
+[ 222222222 ;;; 2 ;;; 1 ] --- ( 1 ) --- Cambio al primero ---
+[ 333333333 ;;; 1 ;;; 0 ] --- ( 0 ) --- Segundo Telefono ---
+[ 555555555 ;;; 1 ;;; 0 ] --- ( 0 ) --- Cuarto Telefono ---
+-----
+DESCONOCIDO: 444444444
+CONOCIDO: 222222222
+****INFORME: 111111111
+****DESCONOCIDO
+NO LOCALIZADO: 111111111
+DESCONOCIDO: 111111111
+CONOCIDO: 222222222
+CAMBIADO: [ 222222222 ;;; 3 ;;; 1 ] --- Primero --- He vuelto a cambiar el primero ---
+****INFORME: 222222222
+Primero
+[ 1 --> Cambio del comentario del primero ---];;[ 2 --> He vuelto a cambiar el primero ---];;
+****TOTALES: Act->( 3 ) Cons->( 2 ) Coment->( 2 )
+CONOCIDO: 222222222
+CAMBIADO: [ 222222222 ;;; 4 ;;; 2 ] --- Fin primero --- Ya no lo cambio mas ---
+****INFORME: 222222222
+Fin primero
+[ 1 --> Cambio del comentario del primero ---];;[ 2 --> He vuelto a cambiar el primero ---];;[ 3 --> Ya no lo cambio mas ---];;
+****TOTALES: Act->( 4 ) Cons->( 3 ) Coment->( 3 )
+-----LISTADO: -1
+[ 222222222 ;;; 4 ;;; 3 ] --- ( 3 ) --- Fin primero ---
+[ 333333333 ;;; 1 ;;; 0 ] --- ( 0 ) --- Segundo Telefono ---
+[ 555555555 ;;; 1 ;;; 0 ] --- ( 0 ) --- Cuarto Telefono ---
+-----

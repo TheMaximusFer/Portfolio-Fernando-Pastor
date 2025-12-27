@@ -1,0 +1,86 @@
+/* Contenedor que ocupa lo que queda bajo header + navbar */
+.info-page {
+  min-height: calc(100vh - 170px); /* ajusta si tu header/nav mide distinto */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px 60px;
+}
+
+.info-card {
+  width: min(900px, 100%);
+  background: rgba(0, 0, 0, 0.253);   /* negro bastante traslúcido */
+  border-radius: 16px;
+  border: 1px solid #3c2a52;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+  padding: 28px 32px 32px;
+  color: #f5e9ff;
+  backdrop-filter: blur(6px);        /* efecto cristal si el navegador lo soporta */
+}
+
+/* Título principal */
+.info-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #681eb3;                    /* morado intenso estilo botón FINALIZAR */
+  text-shadow: 0 0 14px rgba(104, 30, 179, 0.9);
+}
+
+/* Secciones internas */
+.info-card section {
+  margin-bottom: 24px;
+}
+
+.info-card h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  color: #e9ddff;
+}
+
+.info-card h3 {
+  margin: 14px 0 6px 0;
+  font-size: 1rem;
+  color: #c6b7ff;
+}
+
+.info-card p {
+  margin: 6px 0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  color: #e4e2ff;
+}
+
+.info-card ul {
+  margin: 4px 0 10px 18px;
+  padding-left: 0;
+}
+
+.info-card li {
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* Enlaces */
+.info-card a {
+  color: #a29bfe;
+  text-decoration: underline;
+}
+
+.info-card a:hover {
+  color: #c4b9ff;
+}
+
+/* Responsive: un poco más compacto en móvil */
+@media (max-width: 768px) {
+  .info-card {
+    padding: 20px 18px 24px;
+  }
+
+  .info-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+}

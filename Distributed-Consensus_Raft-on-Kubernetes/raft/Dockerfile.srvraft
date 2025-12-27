@@ -1,0 +1,14 @@
+#Montamos la distribución Alpine Linux en nuestra imagen.
+FROM alpine
+
+#A partir de ahora, todo lo que se haga irá a /usr/local/bin.
+WORKDIR /usr/local/bin
+
+#La aplicación dentro del contenerdor escucha el puerto 6000.
+EXPOSE 6000
+
+#Copiamos el ejecutable del servidor Raft.
+COPY srvraft /usr/local/bin/srvraft
+
+#Arrancar el servidor.
+ENTRYPOINT ["/usr/local/bin/srvraft"]

@@ -1,0 +1,130 @@
+/* src/components/forms/SidebarFilters.css */
+
+.sidebar-filters-container {
+    position: sticky;
+    top: 20px; 
+    height: calc(100vh - 290px); 
+    margin-top: 0;
+    margin-bottom: 0; 
+    overflow-y: auto;
+    width: 100%;
+    max-width: 300px;
+    background-color: #1e1531;
+    border-radius: 12px;
+    border: 1px solid #3c2a52;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+/* Personalización de la barra de scroll interna (para que pegue con el tema) */
+.sidebar-filters-container::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar-filters-container::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.2);
+    border-radius: 3px;
+    margin: 10px 0; /* Margen para que el scroll no toque los bordes */
+}
+.sidebar-filters-container::-webkit-scrollbar-thumb {
+    background-color: #3c2a52;
+    border-radius: 3px;
+}
+.sidebar-filters-container::-webkit-scrollbar-thumb:hover {
+    background-color: #9219F5; /* Se pone morado neón al pasar el ratón */
+}
+
+.filter-section-title {
+    color: rgb(255, 255, 255); /* Color morado de tu tema */
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Estilo para los Checkboxes */
+.checkbox-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 5px; /* Pequeño ajuste para el alineamiento visual */
+}
+
+.filter-label {
+    display: flex; /* Para alinear el checkbox y el texto */
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.filter-label input[type="checkbox"] {
+    margin-right: 8px;
+    /* Puedes usar CSS avanzado para estilizar los checkbox o usar una librería */
+}
+
+/* Estilo para el Dropdown (Minecraft Version) */
+.version-dropdown {
+    width: 100%;
+    padding: 8px;
+    background-color: #3e3e3e;
+    color: #f0f0f0;
+    border: 1px solid #555;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los Botones Toggle (Java / Bedrock) */
+.toggle-buttons-row {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.toggle-platform-button {
+    flex-grow: 1; /* Para que se dividan el espacio */
+    padding: 10px;
+    border: 1px solid rgb(104, 30, 179);
+    background-color: transparent;
+    color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.toggle-platform-button:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.toggle-platform-button:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+/* Estilo para el botón Toggle ACTIVO */
+.toggle-platform-button.active {
+    background-color: rgb(104, 30, 179);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Botones Inferiores (Servidores, Mapas, Información) */
+.bottom-buttons-group {
+    display: flex;
+    flex-direction: column; /* Apilados verticalmente */
+    gap: 10px;
+    margin-top: 30px; /* Espacio superior para separarlos del resto de filtros */
+}
+
+.bottom-nav-button {
+    padding: 10px;
+    background-color: #555555;
+    color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+}
+
+/* Estilo especial para el botón Información (el más oscuro en el diseño) */
+.info-button {
+    background-color: rgb(79, 0, 158); /* Color morado activo */
+    margin-top: 20px;
+}

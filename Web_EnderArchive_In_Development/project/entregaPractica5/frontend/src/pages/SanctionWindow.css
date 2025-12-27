@@ -1,0 +1,196 @@
+/* Backdrop */
+.sanction-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .65);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+
+/* Card */
+.sanction-card {
+  width: min(980px, 94vw);
+  background: #2b0162;
+  color: #ffffff;
+  border: 1px solid #dacfff;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .45);
+  padding: 24px;
+  position: relative;
+}
+
+/* Close (círculo con X) */
+.sanction-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+}
+.sanction-close::before,
+.sanction-close::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60%;
+  height: 2px;
+  background: #ffffff;
+  transform-origin: center;
+}
+.sanction-close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.sanction-close::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+.sanction-close:hover { background: rgba(255,255,255,.1); }
+
+/* Título */
+.sanction-title {
+  margin: 0 48px 18px 0;
+  font-size: 28px;
+  font-weight: 900;
+  text-decoration: underline;
+}
+.sanction-title .u { text-decoration: underline; }
+
+/* Bloques */
+.sanction-section { margin-top: 12px; }
+.sanction-label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+/* Motivo */
+.sanction-textarea {
+  width: 100%;
+  height: 220px;
+  background: #ffffff;
+  color: #222;
+  border: 1px solid #cfc9ff;
+  border-radius: 8px;
+  padding: 12px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+/* Castigo */
+.punish-box {
+  background: #57556a;           /* gris del wireframe */
+  border: 1px solid #bfb8ef;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+/* Switch */
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  color: #fff;
+}
+.switch input { display: none; }
+.slider {
+  width: 46px;
+  height: 26px;
+  background: #2d2d35;
+  border: 1px solid #cfc9ff;
+  border-radius: 999px;
+  position: relative;
+  transition: background .2s;
+}
+.slider::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform .2s;
+}
+.switch input:checked + .slider {
+  background: #9019df;
+  border-color: #e0d9ff;
+}
+.switch input:checked + .slider::after {
+  transform: translateX(20px);
+}
+.switch-text { font-weight: 700; }
+
+/* Días / horas */
+.time-fields {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  flex-wrap: wrap;
+}
+.num {
+  width: 64px;
+  height: 36px;
+  text-align: center;
+  color: #fff;
+  background: #2f2f39;
+  border: 1px solid #cfc9ff;
+  border-radius: 8px;
+}
+.num:disabled { opacity: .55; filter: grayscale(0.1); }
+
+/* Botones */
+.sanction-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+.btn {
+  height: 64px;
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn-ghost {
+  background: #b8a6f1;
+  color: #1a123f;
+  border-color: #e7e0ff;
+}
+.btn-ghost:hover { filter: brightness(1.05); }
+.btn-primary {
+  background: #9019df;
+  color: #fff;
+  border-color: #9019df;
+}
+.btn-primary:hover { filter: brightness(1.05); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .sanction-card { width: 94vw; padding: 18px; }
+  .sanction-title { font-size: 22px; }
+  .sanction-textarea { height: 180px; }
+  .sanction-actions { grid-template-columns: 1fr; }
+}
+/* Asegura que el botón "Sancionar" tenga la misma altura que "Cancelar"
+   aunque existan estilos globales de .btn-primary en otras pantallas */
+.sanction-card .btn-primary {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  line-height: 1;
+  box-sizing: border-box;
+}

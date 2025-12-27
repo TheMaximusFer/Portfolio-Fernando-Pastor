@@ -1,0 +1,210 @@
+/* src/pages/EditProfile.css */
+
+/* Ajustes generales para el modo edición */
+.userpage.edit-mode {
+    padding-bottom: 50px;
+}
+
+.loading-text {
+    padding: 40px;
+    text-align: center;
+    color: #e8dff5;
+    font-size: 1.2rem;
+}
+
+/* Columna derecha agrupada */
+.edit-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Tarjetas de edición (reemplazan al about-box genérico) */
+.edit-card {
+    background: #1e1531;
+    border: 1px solid #3c2a52;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.edit-label {
+    font-size: 0.9rem;
+    color: #9219F5; /* Título neón */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Inputs y Textareas estilizados */
+.edit-input {
+    background: #0b0514; /* Fondo muy oscuro */
+    border: 1px solid #3c2a52;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.edit-input:focus {
+    outline: none;
+    border-color: #9219F5; /* Borde morado brillante al escribir */
+    box-shadow: 0 0 10px rgba(146, 25, 245, 0.25);
+    background: #150825;
+}
+
+.textarea-mode {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Grid para las contraseñas (dos columnas) */
+.password-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .password-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Estilos Avatar Overlay --- */
+.avatar-wrapper {
+    position: relative;
+    width: 96px;
+    height: 96px;
+}
+
+.avatar-edit-label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #3c2a52;
+    position: relative;
+    transition: border-color 0.3s;
+}
+
+.avatar-edit-label:hover {
+    border-color: #9219F5;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Capa oscura que aparece al pasar el ratón */
+.avatar-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(16, 3, 30, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.avatar-edit-label:hover .avatar-overlay {
+    opacity: 1;
+}
+
+.camera-icon {
+    font-size: 1.2rem;
+    margin-bottom: 2px;
+}
+
+/* Textos informativos */
+.disabled-text {
+    color: #888;
+    text-decoration: none;
+}
+.info-subtext {
+    font-size: 0.8rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* --- Botones de Acción --- */
+.edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+
+.btn-action {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+/* Botón Cancelar */
+.btn-action.cancel {
+    background: transparent;
+    color: #b3a8c4;
+    border-color: #3c2a52;
+}
+.btn-action.cancel:hover {
+    background: rgba(255, 71, 87, 0.1);
+    border-color: #ff4757;
+    color: #ff4757;
+}
+
+/* Botón Guardar */
+.btn-action.save {
+    background: linear-gradient(135deg, #7a1fa3, #55128c);
+    color: white;
+    border: 1px solid #9219F5;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.btn-action.save:hover {
+    filter: brightness(1.15);
+    box-shadow: 0 0 15px rgba(146, 25, 245, 0.5);
+    transform: translateY(-2px);
+}
+.btn-action.save:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Mensaje de error */
+.error-msg {
+    background: rgba(255, 71, 87, 0.1);
+    color: #ff4757;
+    border: 1px solid #ff4757;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

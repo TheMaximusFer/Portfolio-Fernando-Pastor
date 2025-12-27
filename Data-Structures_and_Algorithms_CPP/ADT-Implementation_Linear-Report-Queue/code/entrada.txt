@@ -1,0 +1,82 @@
+LT
+LI
+611111111
+LT
+LI
+611111111
+B
+611111111
+C
+611111111
+Cambio error
+Comentario error
+O
+222222222
+A
+222222222
+Primer Informe
+C
+222222222
+Cambio al primero
+Cambio del comentario del primero
+C
+662980443
+Cambio de uno que no existe
+No hace nada, no existe nada que cambiar
+A
+222222222
+Error, este telefono ya ha sido añadido
+LI
+222222222
+A
+333333333
+Segundo Telefono
+E
+662980443
+O
+699404040
+A
+444444444
+Tercer Telefono
+A
+555555555
+Cuarto Telefono
+O
+444444444
+C
+444444444
+Cambio en el tercero
+Sigue siendo el tercero
+LT
+LI 
+444444444
+B
+444444444
+LT
+E
+444444444
+E
+222222222
+LI
+111111111
+O
+111111111
+E
+111111111
+E
+222222222
+C
+222222222
+Primero 
+He vuelto a cambiar el primero
+LI 
+222222222
+E
+222222222
+C 
+222222222
+Fin primero
+Ya no lo cambio mas 
+LI
+222222222
+LT

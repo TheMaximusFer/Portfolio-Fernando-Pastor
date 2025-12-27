@@ -1,0 +1,202 @@
+/* src/RegisterAccount.css y src/LoginScreen.css */
+
+body {
+    background: linear-gradient(
+        to top,
+        rgba(36, 0, 70, 0.8), 
+        rgb(21, 21, 21, 1)  
+    );
+    background-color: #9D4EDD;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor de la página */
+.register-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    min-height: 100vh;      
+    width: 100%;
+    padding: 20px; 
+    box-sizing: border-box; 
+}
+
+/* --- CAMBIOS PRINCIPALES AQUÍ --- */
+
+/* El recuadro principal del formulario */
+.register-form-box {
+    /* 1. Fondo semitransparente oscuro */
+    background-color: #15083321; 
+    
+    /* 2. Efecto de cristal esmerilado (desenfoque del fondo) */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+
+    /* 3. Borde Brillante */
+    border: 1px solid #9219F5; 
+    
+    /* 4. Sombra Brillante (Resplandor externo) */
+    box-shadow: 0 0 25px rgba(146, 25, 245, 0.35); 
+
+    padding: 40px;
+    border-radius: 12px; 
+    width: 100%; 
+    max-width: 650px; 
+    color: #ffffff; 
+    align-self: center;
+}
+
+/* Título Brillante */
+.form-title {
+    color: #9219f5;M
+    font-size: 2.8em; 
+    margin-bottom: 30px;
+    text-align: left; 
+    font-weight: bold;
+    
+    /* Efecto Neón en el texto */
+    text-shadow: 
+        0 0 10px rgba(146, 25, 245, 0.8),
+        0 0 20px rgba(146, 25, 245, 0.4);
+}
+
+/* Grupo de formulario */
+.form-group {
+    margin-bottom: 20px; 
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: 8px; 
+    font-size: 1.1em;
+    color: #e8dff5; /* Blanco tintado de lavanda */
+    text-align: left;
+    font-weight: 600;
+}
+
+/* Estilo para los campos de input y textarea */
+.form-input {
+    width: 100%;
+    padding: 12px;
+    
+    /* Inputs más integrados con el tema oscuro/transparente */
+    background-color: rgba(10, 5, 20, 0.6); 
+    border: 1px solid #5a3e75; 
+    
+    border-radius: 6px;
+    color: #ffffff; 
+    font-size: 1em;
+    box-sizing: border-box; 
+    outline: none; 
+    transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: #888; 
+}
+
+.form-input:focus {
+    border-color: #9219F5; /* Borde morado neón al enfocar */
+    box-shadow: 0 0 10px rgba(146, 25, 245, 0.4); /* Resplandor al escribir */
+    background-color: rgba(10, 5, 20, 0.9);
+}
+
+/* Estilo específico para el textarea */
+.textarea-input {
+    resize: vertical; 
+    min-height: 80px; 
+}
+
+/* Botón "Crear cuenta / Iniciar sesión" */
+.submit-button {
+    background: linear-gradient(135deg, #7a1fa3, #55128c); /* Degradado sutil */
+    background-color: #9219F5; 
+    
+    color: #ffffff;
+    border: 1px solid #9219F5;
+    border-radius: 6px;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%; 
+    margin-top: 15px; 
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.submit-button:hover {
+    background-color: #b04df0;
+    box-shadow: 0 0 15px rgba(146, 25, 245, 0.6); /* Brilla más al pasar el mouse */
+    transform: translateY(-2px); 
+    border-color: #dcb0ff;
+}
+
+.submit-button:active {
+    transform: translateY(0);
+    box-shadow: 0 0 5px rgba(146, 25, 245, 0.4);
+}
+
+/* --- BOTÓN DE LOGO EN ESQUINA --- */
+.page-corner-logo {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    cursor: pointer;
+    z-index: 100; /* Asegura que esté por encima de todo */
+    display: flex;
+    align-items: center;
+}
+
+.page-corner-logo img {
+    height: 120px; /* Tamaño ajustado para que se vea bien */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efecto al pasar el ratón: crece un poco y brilla */
+.page-corner-logo img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(146, 25, 245, 0.6));
+}
+
+/* Ajuste para móviles: si la pantalla es muy pequeña, que no tape el form */
+@media (max-width: 600px) {
+    .page-corner-logo {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 20px;
+        align-self: flex-start;
+    }
+    .register-page-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 20px;
+    }
+}
+
+.register-link-box {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.95em;
+    color: #e8dff5;
+}
+
+.register-link {
+    color: #9219F5;       /* Color morado */
+    font-weight: bold;
+    cursor: pointer;      /* Manita al pasar el ratón */
+    text-decoration: underline;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.register-link:hover {
+    color: #d0a3ff;
+    text-shadow: 0 0 8px rgba(146, 25, 245, 0.8);
+    text-decoration: none;
+}

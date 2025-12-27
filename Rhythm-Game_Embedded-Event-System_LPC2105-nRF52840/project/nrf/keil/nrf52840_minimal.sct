@@ -1,0 +1,13 @@
+; nRF52840 — 1MB Flash, 256KB RAM, con stack/heap explícitos (ARMCC/Keil 5)
+LR_IROM1 0x00000000 0x00100000  {           ; FLASH 1 MB
+  ER_IROM1 0x00000000 0x00100000  {         ; Código + const
+    *.o (RESET, +First)                      ; vector con símbolo RESET
+    *(InRoot$$Sections)
+    .ANY (+RO)
+  }
+  RW_IRAM1 0x20000000 0x0003B000  {         ; RAM para RW/ZI
+    .ANY (+RW +ZI)
+  }
+  ARM_LIB_HEAP  0x2003B000 EMPTY 0x00004000 { } ; 16 KB heap
+  ARM_LIB_STACK 0x2003F000 EMPTY 0x00001000 { } ; 4 KB stack (crea __initial_sp)
+}

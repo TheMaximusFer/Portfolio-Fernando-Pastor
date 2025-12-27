@@ -1,0 +1,110 @@
+****INFORME: 111111111
+****DESCONOCIDO
+-----LISTADO: 0
+-----
+NO CAMBIADO: 111111111
+NO LOCALIZADO: 111111111
+DESCONOCIDO: 111111111
+NO BORRADO: 111111111
+INTRODUCIDO: [ 0 ] --- Primer Informe Que Existe
+NO INTRODUCIDO: [ 0 ] --- Segundo añadir de 000000000
+****INFORME: 111111111
+****DESCONOCIDO
+****INFORME: 0
+Primer Informe Que Existe
+****TOTALES: Act->( 1 ) Cons->( 1 ) Coment->( 0 )
+-----LISTADO: 1
+[ 0 ;;; 1 ;;; 1 ] --- ( 0 ) --- Primer Informe Que Existe ---
+-----
+DESCONOCIDO: 111111111
+CONOCIDO: 0
+NO LOCALIZADO: 111111111
+LOCALIZADO: [ 0 ;;; 1 ;;; 2 ] --- ( 0 ) --- Primer Informe Que Existe ---
+NO CAMBIADO: 111111111
+CAMBIADO: [ 0 ;;; 2 ;;; 2 ] --- CAMBIO EN EL 0 --- He cambiado el 0 antes no esa así ---
+LOCALIZADO: [ 0 ;;; 2 ;;; 3 ] --- ( 1 ) --- CAMBIO EN EL 0 ---
+****INFORME: 0
+CAMBIO EN EL 0
+[ 1 --> He cambiado el 0 antes no esa así ---];;
+****TOTALES: Act->( 2 ) Cons->( 4 ) Coment->( 1 )
+-----LISTADO: 1
+[ 0 ;;; 2 ;;; 4 ] --- ( 1 ) --- CAMBIO EN EL 0 ---
+-----
+BORRADO: 0
+-----LISTADO: 0
+-----
+INTRODUCIDO: [ 10 ] --- ARBOL
+INTRODUCIDO: [ 5 ] --- ARBOL
+INTRODUCIDO: [ 15 ] --- ARBOL
+INTRODUCIDO: [ 2 ] --- ARBOL
+INTRODUCIDO: [ 8 ] --- ARBOL
+INTRODUCIDO: [ 12 ] --- ARBOL
+INTRODUCIDO: [ 18 ] --- ARBOL
+INTRODUCIDO: [ 1 ] --- ARBOL
+INTRODUCIDO: [ 3 ] --- ARBOL
+INTRODUCIDO: [ 4 ] --- ARBOL
+-----LISTADO: 10
+[ 1 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 2 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 3 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 4 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 5 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 8 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 10 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 12 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 15 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 18 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+-----
+INTRODUCIDO: [ 6 ] --- ARBOL
+NO INTRODUCIDO: [ 5 ] --- ARBOL
+INTRODUCIDO: [ 7 ] --- ARBOL
+INTRODUCIDO: [ 9 ] --- ARBOL
+INTRODUCIDO: [ 11 ] --- ARBOL
+INTRODUCIDO: [ 13 ] --- ARBOL
+INTRODUCIDO: [ 14 ] --- ARBOL
+INTRODUCIDO: [ 16 ] --- ARBOL
+NO INTRODUCIDO: [ 15 ] --- ARBOL
+INTRODUCIDO: [ 19 ] --- ARBOL
+INTRODUCIDO: [ 17 ] --- ARBOL
+-----LISTADO: 19
+[ 1 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 2 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 3 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 4 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 5 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 6 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 7 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 8 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 9 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 10 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 11 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 12 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 13 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 14 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 15 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 16 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 17 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 18 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 19 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+-----
+BORRADO: 1
+BORRADO: 3
+BORRADO: 10
+-----LISTADO: 16
+[ 2 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 4 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 5 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 6 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 7 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 8 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 9 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 11 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 12 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 13 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 14 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 15 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 16 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 17 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 18 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+[ 19 ;;; 1 ;;; 0 ] --- ( 0 ) --- ARBOL ---
+-----

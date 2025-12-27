@@ -1,0 +1,146 @@
+INTRODUCIDO: [ indep1 ] --- Sensor principal activado --- ( 1 )
+INTRODUCIDO: [ indep2 ] --- Alarma secundaria --- ( 2 )
+INTRODUCIDO: [ dep1 -de-> indep1 ] --- Detección de movimiento en zona 1 --- ( 3 )
+INTRODUCIDO: [ dep2 -de-> indep1 ] --- Luces encendidas en zona 1 --- ( 4 )
+INTRODUCIDO: [ dep3 -de-> dep1 ] --- Alarma sonora en subzona 1A --- ( 5 )
+INTRODUCIDO: [ dep4 -de-> indep2 ] --- Cámara activada en zona 2 --- ( 6 )
+INTRODUCIDO: [ dep5 -de-> dep3 ] --- Notificación push para subzona 1A --- ( 7 )
+INTRODUCIDO: [ extra_indep ] --- Evento extra independiente --- ( 8 )
+NO INTRODUCIDO: [ dep1 -de-> indep1 ] --- Duplicado intento --- ( 9 )
+CAMBIADO: [ dep2 -de-> indep1 ;;; 0 ] --- Nueva desc para dep2 --- ( 10 )
+NO CAMBIADO: no_existe
+LOCALIZADO: [ indep1 --- 2 ] --- Sensor principal activado --- ( 1 )
+LOCALIZADO: [ dep5 -de-> dep3 ;;; 0 ] --- Notificación push para subzona 1A --- ( 7 )
+DEPendiente: dep3
+INDEPendiente: extra_indep
+DESCONOCIDO: no_existe
+INDEPENDIZADO: dep4
+YA ERA INDepend.: indep2
+INTENTANDO hacer depend.: dep3 -de-> indep2
+INTENTANDO hacer depend.: dep5 -de-> dep5
+IMPOSIBLE hacer depend.: dep6 -de-> indep1
+BORRADO: dep5
+BORRADO: dep1
+NO BORRADO: no_existe
+-----LISTADO: 6
+[ dep2 -de-> indep1 ;;; 0 ] --- Nueva desc para dep2 --- ( 10 )
+[ dep3 -de-> indep2 ;;; 0 ] --- Alarma sonora en subzona 1A --- ( 5 )
+[ dep4 --- 0 ] --- Cámara activada en zona 2 --- ( 6 )
+[ extra_indep --- 0 ] --- Evento extra independiente --- ( 8 )
+[ indep1 --- 1 ] --- Sensor principal activado --- ( 1 )
+[ indep2 --- 1 ] --- Alarma secundaria --- ( 2 )
+-----
+****DEPENDIENTES: indep1
+[ indep1 --- 1 ] --- Sensor principal activado --- ( 1 ) ****
+[1 -> dep2 -de-> indep1 ;;; 0 ] --- Nueva desc para dep2 --- ( 10 ) ;;;;
+****FINAL dependientes -de-> indep1
+****DEPENDIENTES: dep1
+****DESCONOCIDO
+****DEPENDIENTES: indep2
+[ indep2 --- 1 ] --- Alarma secundaria --- ( 2 ) ****
+[1 -> dep3 -de-> indep2 ;;; 0 ] --- Alarma sonora en subzona 1A --- ( 5 ) ;;;;
+****FINAL dependientes -de-> indep2
+****DEPENDIENTES: no_existe
+****DESCONOCIDO
+NO INTRODUCIDO: [ nuevo_dep_fallo -de-> supervisor_inexistente ] --- Esto debería fallar --- ( 10 )
+NO INTRODUCIDO: [ auto_dependiente -de-> auto_dependiente ] --- Esto también debería fallar --- ( 11 )
+INTRODUCIDO: [ este_es_un_nombre_muy_largo_para_un_evento_independiente_para_ver_como_lo_maneja_el_programa ] --- Un nombre muy largo --- ( 12 )
+INTRODUCIDO: [ prioridad_cero ] --- Prueba de prioridad cero --- ( 0 )
+NO CAMBIADO: evento_inexistente_para_cambiar
+CAMBIADO: [ indep1 --- 1 ] --- Esta es una descripción muy larga para un evento existente para ver cómo lo maneja el programa y si causa algún desbordamiento de búfer u otros problemas. --- ( 14 )
+IMPOSIBLE hacer depend.: indep2 -de-> evento_inexistente_para_dependencia
+INTENTANDO hacer depend.: extra_indep -de-> extra_indep
+INTRODUCIDO: [ circ_A ] --- Circular A --- ( 15 )
+INTRODUCIDO: [ circ_B ] --- Circular B --- ( 16 )
+INTENTANDO hacer depend.: circ_A -de-> circ_B
+INTENTANDO hacer depend.: circ_B -de-> circ_A
+NO BORRADO: indep1
+NO BORRADO: evento_inexistente_para_borrar
+****DEPENDIENTES: evento_inexistente_para_ld
+****DESCONOCIDO
+****DEPENDIENTES: extra_indep
+[ extra_indep --- 0 ] --- Evento extra independiente --- ( 8 ) ****
+****FINAL dependientes -de-> extra_indep
+-----LISTADO: 10
+[ circ_A -de-> circ_B ;;; 1 ] --- Circular A --- ( 15 )
+[ circ_B -de-> circ_A ;;; 1 ] --- Circular B --- ( 16 )
+[ dep2 -de-> indep1 ;;; 0 ] --- Nueva desc para dep2 --- ( 10 )
+[ dep3 -de-> indep2 ;;; 0 ] --- Alarma sonora en subzona 1A --- ( 5 )
+[ dep4 --- 0 ] --- Cámara activada en zona 2 --- ( 6 )
+[ este_es_un_nombre_muy_largo_para_un_evento_independiente_para_ver_como_lo_maneja_el_programa --- 0 ] --- Un nombre muy largo --- ( 12 )
+[ extra_indep --- 0 ] --- Evento extra independiente --- ( 8 )
+[ indep1 --- 1 ] --- Esta es una descripción muy larga para un evento existente para ver cómo lo maneja el programa y si causa algún desbordamiento de búfer u otros problemas. --- ( 14 )
+[ indep2 --- 1 ] --- Alarma secundaria --- ( 2 )
+[ prioridad_cero --- 0 ] --- Prueba de prioridad cero --- ( 0 )
+-----
+INTRODUCIDO: [ cadena_A ] --- Raíz de la cadena --- ( 20 )
+INTRODUCIDO: [ cadena_B -de-> cadena_A ] --- Medio de la cadena --- ( 21 )
+INTRODUCIDO: [ cadena_C -de-> cadena_B ] --- Hoja de la cadena --- ( 22 )
+****DEPENDIENTES: cadena_A
+[ cadena_A --- 1 ] --- Raíz de la cadena --- ( 20 ) ****
+[1 -> cadena_B -de-> cadena_A ;;; 1 ] --- Medio de la cadena --- ( 21 ) ;;;;
+****FINAL dependientes -de-> cadena_A
+****DEPENDIENTES: cadena_B
+[ cadena_B -de-> cadena_A ;;; 1 ] --- Medio de la cadena --- ( 21 ) ****
+[1 -> cadena_C -de-> cadena_B ;;; 0 ] --- Hoja de la cadena --- ( 22 ) ;;;;
+****FINAL dependientes -de-> cadena_B
+INDEPENDIZADO: cadena_B
+-----LISTADO: 13
+[ cadena_A --- 0 ] --- Raíz de la cadena --- ( 20 )
+[ cadena_B --- 1 ] --- Medio de la cadena --- ( 21 )
+[ cadena_C -de-> cadena_B ;;; 0 ] --- Hoja de la cadena --- ( 22 )
+[ circ_A -de-> circ_B ;;; 1 ] --- Circular A --- ( 15 )
+[ circ_B -de-> circ_A ;;; 1 ] --- Circular B --- ( 16 )
+[ dep2 -de-> indep1 ;;; 0 ] --- Nueva desc para dep2 --- ( 10 )
+[ dep3 -de-> indep2 ;;; 0 ] --- Alarma sonora en subzona 1A --- ( 5 )
+[ dep4 --- 0 ] --- Cámara activada en zona 2 --- ( 6 )
+[ este_es_un_nombre_muy_largo_para_un_evento_independiente_para_ver_como_lo_maneja_el_programa --- 0 ] --- Un nombre muy largo --- ( 12 )
+[ extra_indep --- 0 ] --- Evento extra independiente --- ( 8 )
+[ indep1 --- 1 ] --- Esta es una descripción muy larga para un evento existente para ver cómo lo maneja el programa y si causa algún desbordamiento de búfer u otros problemas. --- ( 14 )
+[ indep2 --- 1 ] --- Alarma secundaria --- ( 2 )
+[ prioridad_cero --- 0 ] --- Prueba de prioridad cero --- ( 0 )
+-----
+****DEPENDIENTES: cadena_A
+[ cadena_A --- 0 ] --- Raíz de la cadena --- ( 20 ) ****
+****FINAL dependientes -de-> cadena_A
+LOCALIZADO: [ cadena_B --- 1 ] --- Medio de la cadena --- ( 21 )
+BORRADO: cadena_C
+LOCALIZADO: [ cadena_B --- 0 ] --- Medio de la cadena --- ( 21 )
+BORRADO: cadena_B
+INDEPendiente: cadena_A
+DESCONOCIDO: cadena_B
+INTENTANDO hacer depend.: circ_A -de-> cadena_A
+****DEPENDIENTES: circ_B
+[ circ_B -de-> circ_A ;;; 0 ] --- Circular B --- ( 16 ) ****
+****FINAL dependientes -de-> circ_B
+****DEPENDIENTES: cadena_A
+[ cadena_A --- 1 ] --- Raíz de la cadena --- ( 20 ) ****
+[1 -> circ_A -de-> cadena_A ;;; 1 ] --- Circular A --- ( 15 ) ;;;;
+****FINAL dependientes -de-> cadena_A
+BORRADO: circ_B
+DESCONOCIDO: circ_B
+NO BORRADO: cadena_A
+****DEPENDIENTES: cadena_A
+[ cadena_A --- 1 ] --- Raíz de la cadena --- ( 20 ) ****
+[1 -> circ_A -de-> cadena_A ;;; 0 ] --- Circular A --- ( 15 ) ;;;;
+****FINAL dependientes -de-> cadena_A
+INTRODUCIDO: [ item_vacio ] ---  --- ( 0 )
+LOCALIZADO: [ item_vacio --- 0 ] ---  --- ( 0 )
+NO BORRADO: indep2
+****DEPENDIENTES: indep2
+[ indep2 --- 1 ] --- Alarma secundaria --- ( 2 ) ****
+[1 -> dep3 -de-> indep2 ;;; 0 ] --- Alarma sonora en subzona 1A --- ( 5 ) ;;;;
+****FINAL dependientes -de-> indep2
+-----LISTADO: 11
+[ cadena_A --- 1 ] --- Raíz de la cadena --- ( 20 )
+[ circ_A -de-> cadena_A ;;; 0 ] --- Circular A --- ( 15 )
+[ dep2 -de-> indep1 ;;; 0 ] --- Nueva desc para dep2 --- ( 10 )
+[ dep3 -de-> indep2 ;;; 0 ] --- Alarma sonora en subzona 1A --- ( 5 )
+[ dep4 --- 0 ] --- Cámara activada en zona 2 --- ( 6 )
+[ este_es_un_nombre_muy_largo_para_un_evento_independiente_para_ver_como_lo_maneja_el_programa --- 0 ] --- Un nombre muy largo --- ( 12 )
+[ extra_indep --- 0 ] --- Evento extra independiente --- ( 8 )
+[ indep1 --- 1 ] --- Esta es una descripción muy larga para un evento existente para ver cómo lo maneja el programa y si causa algún desbordamiento de búfer u otros problemas. --- ( 14 )
+[ indep2 --- 1 ] --- Alarma secundaria --- ( 2 )
+[ item_vacio --- 0 ] ---  --- ( 0 )
+[ prioridad_cero --- 0 ] --- Prueba de prioridad cero --- ( 0 )
+-----

@@ -1,0 +1,365 @@
+
+.worldpage {
+  min-height: 100vh;
+  background: transparent;
+  color: #f1f1f3;
+}
+
+/* Ventana central */
+.detail-shell {
+  width: min(1150px, 90vw);
+  margin: 18px auto 40px;
+  background: #2b2b31;
+  border: 1px solid #3a3a42;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  padding: 18px;
+}
+
+/* Cabecera (título + autor) */
+.window-head {
+  margin-bottom: 10px;
+  padding: 20px 20px;
+}
+
+.window-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.window-title .underline {
+  border-bottom: 2px solid #cfcfd6;
+  padding-bottom: 2px;
+}
+
+.window-title .by {
+  font-size: 14px;
+  color: #b9bac2;
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
+/* izquierda flexible + derecha fija */
+.window-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Columna izquierda */
+.window-left {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.section-title {
+  margin: 14px 0 10px 0;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+/* Descripción ancha que ocupa el hueco restante */
+.desc-box {
+  background: #3a3a3f;
+  border: 1px solid #3a3a42;
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: #e7e7ea;
+  margin-bottom: 12px;
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+/* Marcadores (lista) */
+.markers-pane {
+  background: #4a4a4f55;
+  border: 1px solid #3a3a42;
+  border-radius: 8px;
+  padding: 10px;
+  max-height: 380px;
+  overflow: auto;
+}
+
+/* Fila de marcador: mini-grid interno */
+.marker-row {
+  display: grid;
+  grid-template-columns: 96px 1fr 130px 150px;  /* imagen + nombre + dimensión + coords */
+  gap: 14px;
+  align-items: center;
+  background: #7d6ed955;
+  border: 1px solid #3a3a42;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Imagen del marcador*/
+.thumb {
+  width: 96px;
+  height: 96px;
+  border-radius: 8px;
+  background: #22232a;
+  border: 1px dashed #5b5b66;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb .tag-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Nombre del marcador */
+.marker-main {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.marker-name {
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Dimensión */
+.dimension {
+  background: #3e3e45;
+  border: 1px solid #3a3a42;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+  text-align: center;
+  width: 130px;
+}
+
+.dimension-value {
+  font-weight: 700;
+}
+
+/* Coordenadas */
+.coords {
+  width: 130px;
+  background: #7d6ed9aa;
+  border: 1px solid #3a3a42;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.coords-title {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.coords-line {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.coords-line span {
+  color: #eaeaff;
+  font-weight: 800;
+}
+
+/* Columna derecha */
+.window-right {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.right-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Botón de aviso (⚠) */
+.warn {
+  background: #f7d82c;
+  color: #111111;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  padding: 0.08em 0.35em;
+  border: none;
+  cursor: pointer;
+}
+
+/* Galería (imagen grande) */
+.gallery-box {
+  border: 1px solid #3a3a42;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Controles de la galería: flechas + puntos */
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #3a3a3f;
+  border: 1px solid #3a3a42;
+  border-radius: 8px;
+}
+
+/* Botones de flecha */
+.square-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #444652;
+  border: 1px solid #5a5d6b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 0;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.08s ease;
+}
+
+.square-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.square-btn:hover {
+  background: #5a5d6b;
+  border-color: #7a7e8d;
+}
+
+.square-btn:active {
+  transform: translateY(1px);
+}
+
+/* Puntos circulares */
+.dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  user-select: none;
+}
+
+.dot {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  padding: 0;
+  line-height: 0;
+  border: 1px solid #8a8b93;
+  background: #6f6f79;
+  display: inline-block;
+  cursor: pointer;
+  box-sizing: content-box;
+}
+
+.dot.active {
+  background: #b6a3ff;
+  border-color: #c2b5ff;
+  box-shadow: 0 0 0 2px rgba(182, 163, 255, 0.25);
+}
+
+
+/* Tags (bajo galería) */
+.tags-box {
+  background: #3e3e45;
+  border: 1px solid #3a3a42;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 46px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tag-chip {
+  background: #292933;
+  border: 1px solid #4d4d57;
+  color: #cfd0ff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* Descargar */
+.download-btn {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #ffffff;
+  background: #5a46f6;
+  border: 1px solid #463bc0;
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+}
+
+/* Para que la columna de la derecha se ponga abajo si disminuimos el tamaño de ventana */
+@media (max-width: 1100px) {
+  .window-grid { grid-template-columns: 1fr; }
+}
+
+/* Botón de favoritos (estrella) */
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #5b5b66; /* Color apagado (gris) por defecto */
+  margin-left: 10px;
+  padding: 0;
+  line-height: 0;
+  vertical-align: text-bottom; /* Alinear con el texto */
+  transition: color 0.2s ease, transform 0.1s;
+}
+
+.star-btn:hover {
+  color: #7a7e8d;
+  transform: scale(1.1);
+}
+
+.star-btn.active {
+  color: #f7d82c; /* Color amarillo/dorado activo */
+}
+
+.star-btn.active:hover {
+  color: #ffeaa7;
+}
+
+/* En WorldDetail.css */
+
+.author-link {
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: underline; /* Opcional, para que parezca link */
+  text-decoration-color: transparent; /* Truco para animar el subrayado */
+    color: #a29bfe; /* Un color morado claro o el que uses de acento */
+  text-decoration-color: #a29bfe;
+}

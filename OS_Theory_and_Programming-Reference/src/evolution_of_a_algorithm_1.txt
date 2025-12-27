@@ -1,0 +1,42 @@
+1º
+---ABUELO---
+quien | testigo | pid  | destino || signals
+A     | 0       | Ppid | Apid    || SIGUSR1(trata)            x(1)
+                                                    -sleep(1)-
+      | 1       |      | Ppid    ||
+      | 0       |      |         || kill(SIGUSR1)--> PADRE
+                                                    -pause()- x(1)
+      | 1       |      |         || SIGUSR1(trata)
+      | 0       |      |         || kill(SIGUSR1)--> PADRE 
+                                                    -pause()- x(2)   
+
+
+---PADRE---
+quien | testigo | pid  | destino || signals
+B     | 0       | Hpid | Apid    || SIGUSR1(trata)            x(1)
+      |         |      | Hpid    || 
+                                                    -pause()- x(1)
+      | 1       |      |         || SIGUSR1(trata)            x(2)
+      | 0       |      |         || kill(SIGUSR1)--> HIJO
+                                                    -pause()- x(2)
+      | 1       |      |         || SIGUSR1(trata)
+      | 0       |      |         || kill(SIGUSR1)--> HIJO
+                                                    -pause()
+
+---HIJO---
+quien | testigo | pid  | destino || signals
+C     | 0       | 0    | Apid    || SIGUSR1(trata)            x(1)
+                                                    -pause()- x(1)
+      | 1       |      |         || SIGUSR1(trata)            x(2)
+      | 0       |      |         || kill(SIGUSR1)--> ABUELO
+                                                    -pause()- x(2)
+      | 1       |      |         || SIGUSR1(trata)            
+      | 0       |      |         || kill(SIGUSR1)--> ABUELO
+                                                    -pause()
+
+TERMINAL:
+BCABCABC...
+
+Sin el signal de la función de captura --> BCA (aunque hay que tener en cuenta que en la versiones actuales de Linux el signal se "autoprograma" en la función de captura aunque no esté).
+
+El programa puede morir si antes de ejecutar el signal de la función de captura, le llega un kill de otro proceso.

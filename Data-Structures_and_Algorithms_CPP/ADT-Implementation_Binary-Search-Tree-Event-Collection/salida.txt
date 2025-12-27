@@ -1,0 +1,88 @@
+-----LISTADO: 0
+-----
+INTRODUCIDO: [ Dato01 ] --- base lista derecha --- ( 1 )
+INTRODUCIDO: [ Dato02 ] --- siguiente nodo --- ( 2 )
+INTRODUCIDO: [ Dato03 -de-> Dato02 ] --- otro mas --- ( 3 )
+INTRODUCIDO: [ Dato04 -de-> Dato03 ] --- nodo relleno --- ( 4 )
+INTRODUCIDO: [ Dato05 -de-> Dato04 ] --- fin cadena derecha --- ( 5 )
+-----LISTADO: 5
+[ Dato01 --- 0 ] --- base lista derecha --- ( 1 )
+[ Dato02 --- 1 ] --- siguiente nodo --- ( 2 )
+[ Dato03 -de-> Dato02 ;;; 1 ] --- otro mas --- ( 3 )
+[ Dato04 -de-> Dato03 ;;; 1 ] --- nodo relleno --- ( 4 )
+[ Dato05 -de-> Dato04 ;;; 0 ] --- fin cadena derecha --- ( 5 )
+-----
+BORRADO: Dato01
+NO BORRADO: Dato02
+NO BORRADO: Dato03
+NO BORRADO: Dato04
+BORRADO: Dato05
+-----LISTADO: 3
+[ Dato02 --- 1 ] --- siguiente nodo --- ( 2 )
+[ Dato03 -de-> Dato02 ;;; 1 ] --- otro mas --- ( 3 )
+[ Dato04 -de-> Dato03 ;;; 0 ] --- nodo relleno --- ( 4 )
+-----
+INTRODUCIDO: [ Dato99 ] --- cima lista izquierda --- ( 9 )
+INTRODUCIDO: [ Dato98 ] --- bajando izq --- ( 8 )
+INTRODUCIDO: [ Dato97 -de-> Dato98 ] --- mas abajo --- ( 7 )
+INTRODUCIDO: [ Dato96 -de-> Dato97 ] --- fondo izq --- ( 6 )
+-----LISTADO: 7
+[ Dato02 --- 1 ] --- siguiente nodo --- ( 2 )
+[ Dato03 -de-> Dato02 ;;; 1 ] --- otro mas --- ( 3 )
+[ Dato04 -de-> Dato03 ;;; 0 ] --- nodo relleno --- ( 4 )
+[ Dato96 -de-> Dato97 ;;; 0 ] --- fondo izq --- ( 6 )
+[ Dato97 -de-> Dato98 ;;; 1 ] --- mas abajo --- ( 7 )
+[ Dato98 --- 1 ] --- bajando izq --- ( 8 )
+[ Dato99 --- 0 ] --- cima lista izquierda --- ( 9 )
+-----
+BORRADO: Dato99
+BORRADO: Dato96
+BORRADO: Dato97
+BORRADO: Dato98
+-----LISTADO: 3
+[ Dato02 --- 1 ] --- siguiente nodo --- ( 2 )
+[ Dato03 -de-> Dato02 ;;; 1 ] --- otro mas --- ( 3 )
+[ Dato04 -de-> Dato03 ;;; 0 ] --- nodo relleno --- ( 4 )
+-----
+INTRODUCIDO: [ Dato50 ] --- raiz del arbol central --- ( 50 )
+INTRODUCIDO: [ Dato30 ] --- hijo izquierdo --- ( 30 )
+INTRODUCIDO: [ Dato70 ] --- hijo derecho --- ( 70 )
+INTRODUCIDO: [ Dato10 ] --- nieto izq extremo --- ( 10 )
+INTRODUCIDO: [ Dato40 ] --- nieto izq centro --- ( 40 )
+INTRODUCIDO: [ Dato90 -de-> Dato50 ] --- nieto der extremo --- ( 90 )
+-----LISTADO: 9
+[ Dato02 --- 1 ] --- siguiente nodo --- ( 2 )
+[ Dato03 -de-> Dato02 ;;; 1 ] --- otro mas --- ( 3 )
+[ Dato04 -de-> Dato03 ;;; 0 ] --- nodo relleno --- ( 4 )
+[ Dato10 --- 0 ] --- nieto izq extremo --- ( 10 )
+[ Dato30 --- 0 ] --- hijo izquierdo --- ( 30 )
+[ Dato40 --- 0 ] --- nieto izq centro --- ( 40 )
+[ Dato50 --- 1 ] --- raiz del arbol central --- ( 50 )
+[ Dato70 --- 0 ] --- hijo derecho --- ( 70 )
+[ Dato90 -de-> Dato50 ;;; 0 ] --- nieto der extremo --- ( 90 )
+-----
+INTENTANDO hacer depend.: Dato30 -de-> Dato70
+-----LISTADO: 9
+[ Dato02 --- 1 ] --- siguiente nodo --- ( 2 )
+[ Dato03 -de-> Dato02 ;;; 1 ] --- otro mas --- ( 3 )
+[ Dato04 -de-> Dato03 ;;; 0 ] --- nodo relleno --- ( 4 )
+[ Dato10 --- 0 ] --- nieto izq extremo --- ( 10 )
+[ Dato30 -de-> Dato70 ;;; 0 ] --- hijo izquierdo --- ( 30 )
+[ Dato40 --- 0 ] --- nieto izq centro --- ( 40 )
+[ Dato50 --- 1 ] --- raiz del arbol central --- ( 50 )
+[ Dato70 --- 1 ] --- hijo derecho --- ( 70 )
+[ Dato90 -de-> Dato50 ;;; 0 ] --- nieto der extremo --- ( 90 )
+-----
+NO BORRADO: Dato50
+INDEPENDIZADO: Dato90
+BORRADO: Dato50
+-----LISTADO: 8
+[ Dato02 --- 1 ] --- siguiente nodo --- ( 2 )
+[ Dato03 -de-> Dato02 ;;; 1 ] --- otro mas --- ( 3 )
+[ Dato04 -de-> Dato03 ;;; 0 ] --- nodo relleno --- ( 4 )
+[ Dato10 --- 0 ] --- nieto izq extremo --- ( 10 )
+[ Dato30 -de-> Dato70 ;;; 0 ] --- hijo izquierdo --- ( 30 )
+[ Dato40 --- 0 ] --- nieto izq centro --- ( 40 )
+[ Dato70 --- 1 ] --- hijo derecho --- ( 70 )
+[ Dato90 --- 0 ] --- nieto der extremo --- ( 90 )
+-----

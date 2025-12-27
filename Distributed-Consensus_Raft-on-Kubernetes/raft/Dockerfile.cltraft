@@ -1,0 +1,11 @@
+#Montamos la distribución Alpine Linux en nuestra imagen.
+FROM alpine
+
+#A partir de ahora, todo lo que se haga irá a /usr/local/bin.
+WORKDIR /usr/local/bin
+
+#Copiamos el ejecutable del servidor Raft.
+COPY cltraft /usr/local/bin/cltraft
+
+#Arrancar el servidor.
+ENTRYPOINT ["/usr/local/bin/cltraft"]

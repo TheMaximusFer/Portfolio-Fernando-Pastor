@@ -1,0 +1,125 @@
+LT
+A
+Dato01
+base lista derecha
+1
+INDependiente
+---
+A
+Dato02
+siguiente nodo
+2
+INDependiente
+---
+A
+Dato03
+otro mas
+3
+DEPendiente
+Dato02
+A
+Dato04
+nodo relleno
+4
+DEPendiente
+Dato03
+A
+Dato05
+fin cadena derecha
+5
+DEPendiente
+Dato04
+LT
+B
+Dato01
+B
+Dato02
+B
+Dato03
+B
+Dato04
+B
+Dato05
+LT
+A
+Dato99
+cima lista izquierda
+9
+INDependiente
+---
+A
+Dato98
+bajando izq
+8
+INDependiente
+---
+A
+Dato97
+mas abajo
+7
+DEPendiente
+Dato98
+A
+Dato96
+fondo izq
+6
+DEPendiente
+Dato97
+LT
+B
+Dato99
+B
+Dato96
+B
+Dato97
+B
+Dato98
+LT
+A
+Dato50
+raiz del arbol central
+50
+INDependiente
+---
+A
+Dato30
+hijo izquierdo
+30
+INDependiente
+---
+A
+Dato70
+hijo derecho
+70
+INDependiente
+---
+A
+Dato10
+nieto izq extremo
+10
+INDependiente
+---
+A
+Dato40
+nieto izq centro
+40
+INDependiente
+---
+A
+Dato90
+nieto der extremo
+90
+DEPendiente
+Dato50
+LT
+D
+Dato30
+Dato70
+LT
+B
+Dato50
+I
+Dato90
+B
+Dato50
+LT

@@ -1,0 +1,35 @@
+### Creamos un nuevo usuario
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "username": "cacaUser",
+  "password": "clave123",
+  "email": "test@correo.com",
+  "description": "Usuario admin, no hace nada mas",
+  "admin": true,
+  "sanctioned": false,
+  "banned": false,
+  "profilePic": null
+}
+
+### Obtenemos todos los usuarios (para comprobar)
+GET http://localhost:8080/api/users
+
+### Actualizamos un usuario (Update)
+PUT http://localhost:8080/api/users/testUser
+Content-Type: application/json
+
+{
+  "password": "nuevaClave456",
+  "email": "correo.actualizado@test.com",
+  "description": "¡Mi descripción actualizada!"
+}
+### Tomamos el usuario para comprobar que ha cambiado
+GET http://localhost:8080/api/users/testUser
+
+### Borramos el usuario 'testUser'
+DELETE http://localhost:8080/api/users/testUser
+
+### Intentamos tomar el usuario para ver que ya no está
+GET http://localhost:8080/api/users/testUser

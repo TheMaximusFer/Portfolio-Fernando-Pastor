@@ -1,0 +1,41 @@
+
+---PADRE---
+i | k | c      | fd0 | fd1 | i(incrementar) || signals
+1 | 0 | 5      |  0  |  2  | 0              ||
+  | 1 |        |     |     | 1              ||
+  |   | 5+'c'  |     |     |                || wait() x
+  | 2 |        |     |     | 2              ||                                               
+                                                        -cierra stdout-
+---HIJO---
+i | k | c      | fd0 | fd1 | i(incrementar) || signals
+1 | 0 | 5      |  0  |  2  | 0              ||
+  | 1 |        |     |     | 1              ||
+                                                        -cierra stderr-
+6 | 2 |        |  2  |     | 2              ||
+  | 3 |        |     |     | 3              ||
+
+
+(bufferP)
+Inicio: valor de k: 1 x
+Padre: Termino
+
+(bufferH)
+Inicio: valor de k: 1 x
+
+
+TERMINAL:
+$P Función: valor de i: 1\n
+$P Antes de fork\n
+$H Inicio: valor de k: 1Función: valor de i: 2\n
+$H Función: valor de i: 3\n
+$H Hijo: valor de k: 3
+$H Hijo: valor de c: "5",5\n
+$P Inicio: valor de k: 1Función: valor de i: 2\n
+Padre: valor de k: 2\n
+$P Padre: valor de i: 1\n
+$P Padre: valor de c: "5+'c'",5+'c'\n
+$P Adios Padre
+
+salida:
+Adios hijo
+

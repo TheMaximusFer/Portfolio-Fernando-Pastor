@@ -1,0 +1,255 @@
+.navigation-bar {
+    padding-top: 7px;
+    padding-bottom: 15px;
+
+    background-color: #1e1531;
+    color: #f0f0f0;
+    font-family: sans-serif;
+}
+
+/* --- 1. Botones de Navegación --- */
+.nav-buttons-row {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.nav-button {
+    position: relative;
+    background: none;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    
+    outline: none !important;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    
+    /* Forma rectangular con puntas suaves */
+    border-radius: 15px; 
+    
+    isolation: isolate; 
+}
+
+.nav-button:focus,
+.nav-button:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* CAPA 1: Sombra/Profundidad 3D */
+.nav-button-shadow {
+    position: absolute;
+    inset: 0;
+    border-radius: 15px; 
+    background-color: #2e1065; 
+    transform: translateY(5px);
+    transition: transform 0.2s ease-out;
+    pointer-events: none;
+}
+
+/* CAPA 2: Cuerpo Principal */
+.nav-button-body {
+    position: absolute;
+    inset: 0;
+    border-radius: 15px; 
+    background-color: #1c0b2e; 
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    transition: all 0.3s ease-out;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Efecto de Brillo Superior (Glossy) */
+.nav-button-glare {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 40%;
+    background: linear-gradient(to bottom, rgba(142, 44, 184, 0.2), transparent);
+    border-radius: 15px 15px 0 0; 
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+/* CAPA 3: Resplandor Externo (Glow) */
+.nav-button-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 15px; 
+    opacity: 0;
+    box-shadow: 0 0 20px rgba(101, 70, 131, 0.6), 0 0 40px rgba(157, 74, 240, 0.4);
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+}
+
+/* CAPA 4: Texto (Contenido) */
+.nav-button-content {
+    position: relative;
+    z-index: 10;
+    color: #eedeff; 
+    transition: all 0.2s;
+    display: block; 
+}
+
+/* --- ESTADOS (Hover, Active, Click) --- */
+
+/* Hover */
+.nav-button:hover .nav-button-body {
+    background-image: linear-gradient(to bottom, #681eb3, #4a126b);
+    border-color: transparent;
+    transform: translateY(-2px);
+    filter: brightness(1.2); 
+}
+
+.nav-button:hover .nav-button-shadow {
+    transform: translateY(6px);
+}
+
+.nav-button:hover .nav-button-glow {
+    opacity: 1;
+}
+
+.nav-button:hover .nav-button-content {
+    color: white;
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+}
+
+/* Active (Seleccionado) */
+.nav-button.active .nav-button-body {
+    background-image: linear-gradient(to bottom, #681eb3, #4a126b);
+    border-color: transparent;
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.nav-button.active .nav-button-shadow {
+    transform: translateY(6px);
+    background-color: #3a0f6b;
+}
+
+.nav-button.active .nav-button-glow {
+    opacity: 1;
+}
+
+.nav-button.active .nav-button-content {
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Clic (Press) */
+.nav-button:active .nav-button-body,
+.nav-button.active:active .nav-button-body {
+    transform: translateY(2px);
+}
+
+.nav-button:active .nav-button-shadow,
+.nav-button.active:active .nav-button-shadow {
+    transform: translateY(2px);
+}
+
+.nav-button:active .nav-button-content,
+.nav-button.active:active .nav-button-content {
+    transform: translateY(2px); 
+}
+
+/* --- 2. Búsqueda y Visibilidad --- */
+.search-visibility-row {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Barra de Búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    
+    background-color: #1c0b2e; 
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 15px; 
+    
+    padding: 10px 20px;
+    
+    /* CAMBIO: Aumentado el ancho para hacerla más larga */
+    flex-grow: 0;       
+    width: 100%;
+    max-width: 1200px;
+    min-width: 300px;   
+    
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Efecto al hacer clic en la búsqueda */
+.search-bar:focus-within {
+    border-color: #a855f7; 
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); 
+    transform: translateY(-1px);
+}
+
+.search-icon {
+    margin-right: 12px;
+    color: #a855f7; 
+    font-size: 1.1em;
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    color: #eedeff; 
+    padding: 5px;
+    width: 100%;
+    outline: none; 
+    font-size: 15px;
+}
+
+.search-input::placeholder {
+    color: rgba(238, 222, 255, 0.4);
+}
+
+/* Botones de Visibilidad (Toggle) */
+.visibility-toggle {
+    display: flex;
+}
+
+.toggle-button {
+    border: 1px solid rgba(168, 85, 247, 0.5); /* Borde morado sutil */
+    background-color: rgba(46, 16, 101, 0.3);
+    color: #d8b4fe;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+.toggle-button:first-child {
+    border-radius: 12px 0 0 12px;
+    border-right: none;
+}
+
+.toggle-button:last-child {
+    border-radius: 0 12px 12px 0;
+}
+
+.toggle-button:hover {
+    background-color: rgba(104, 30, 179, 0.3);
+}
+
+/* Estilo para el botón ACTIVO (Public/Private) */
+.toggle-button.active {
+    background-color: #6d28d9;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(109, 40, 217, 0.4);
+}

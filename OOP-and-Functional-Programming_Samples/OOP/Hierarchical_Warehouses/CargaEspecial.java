@@ -1,0 +1,1 @@
+public interface CargaEspecial extends CargaBase{}

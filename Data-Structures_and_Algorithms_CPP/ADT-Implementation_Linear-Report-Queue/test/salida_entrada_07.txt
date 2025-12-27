@@ -1,0 +1,45 @@
+-----LISTADO: 0
+-----
+INTRODUCIDO: [ 693121177 ] --- Jazztel llamando a todas horas
+NO CAMBIADO: 662980443
+-----LISTADO: 1
+[ 693121177 ;;; 1 ;;; 0 ] --- ( 0 ) --- Jazztel llamando a todas horas ---
+-----
+INTRODUCIDO: [ 662980443 ] --- Telemarketing
+****INFORME: 662980443
+Telemarketing
+****TOTALES: Act->( 1 ) Cons->( 1 ) Coment->( 0 )
+CAMBIADO: [ 662980443 ;;; 2 ;;; 1 ] --- Telemarketing. Estafadores --- Telemarketing: Aquaservice,... ---
+NO INTRODUCIDO: [ 693121177 ] --- Telemarketing
+DESCONOCIDO: 662988686
+CONOCIDO: 662980443
+NO LOCALIZADO: 662988686
+LOCALIZADO: [ 662980443 ;;; 2 ;;; 2 ] --- ( 1 ) --- Telemarketing. Estafadores ---
+-----LISTADO: 2
+[ 662980443 ;;; 2 ;;; 2 ] --- ( 1 ) --- Telemarketing. Estafadores ---
+[ 693121177 ;;; 1 ;;; 0 ] --- ( 0 ) --- Jazztel llamando a todas horas ---
+-----
+****INFORME: 662980443
+Telemarketing. Estafadores
+[ 1 --> Telemarketing: Aquaservice,... ---];;
+****TOTALES: Act->( 2 ) Cons->( 3 ) Coment->( 1 )
+****INFORME: 662988686
+****DESCONOCIDO
+CAMBIADO: [ 662980443 ;;; 3 ;;; 3 ] --- Acoso telefonico --- Acoso telefonico ---
+****INFORME: 662980443
+Acoso telefonico
+[ 1 --> Telemarketing: Aquaservice,... ---];;[ 2 --> Acoso telefonico ---];;
+****TOTALES: Act->( 3 ) Cons->( 4 ) Coment->( 2 )
+CAMBIADO: [ 662980443 ;;; 4 ;;; 4 ] --- Telemarketing. Acoso telefonico --- Estafadores. ---
+INTRODUCIDO: [ 651942573 ] --- Llaman y cuelgan
+-----LISTADO: 3
+[ 651942573 ;;; 1 ;;; 0 ] --- ( 0 ) --- Llaman y cuelgan ---
+[ 662980443 ;;; 4 ;;; 4 ] --- ( 3 ) --- Telemarketing. Acoso telefonico ---
+[ 693121177 ;;; 1 ;;; 0 ] --- ( 0 ) --- Jazztel llamando a todas horas ---
+-----
+NO BORRADO: 662988686
+BORRADO: 693121177
+-----LISTADO: 2
+[ 651942573 ;;; 1 ;;; 0 ] --- ( 0 ) --- Llaman y cuelgan ---
+[ 662980443 ;;; 4 ;;; 4 ] --- ( 3 ) --- Telemarketing. Acoso telefonico ---
+-----

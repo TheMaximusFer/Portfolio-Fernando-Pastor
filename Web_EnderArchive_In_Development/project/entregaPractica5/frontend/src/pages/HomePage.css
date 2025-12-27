@@ -1,0 +1,59 @@
+/* src/pages/HomePage.css */
+
+
+.app-container{
+  overflow: hidden;
+}
+
+
+.home-page-container {
+    height: 100%;
+    width: 100%;
+    /* No pongas background-color si quieres ver las partículas */
+    overflow: hidden; /* Evita scroll en este contenedor */
+}
+
+/* LAYOUT PRINCIPAL */
+.main-content-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 30px;
+  padding: 0 20px 20px 20px;
+
+  /* Altura fija: alto de la ventana menos header (90px) y barra de navegación (~80px) */
+  height: calc(100vh - 240px);
+  box-sizing: border-box;
+
+  /* El scroll lo harán los hijos */
+  overflow: hidden;
+}
+
+/* Contenedor de los mundos con scroll interno */
+.worlds-scroll-container {
+  margin-top: 20px;  
+    position: sticky;
+    height: 100%;
+    overflow-y: auto;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 10;
+  overflow-y: auto;
+  padding-right: 8px; /* para que no tape el scrollbar las cards */
+}
+
+/*Personalizar scrollbar de los mundos */
+.worlds-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+.worlds-scroll-container::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+.worlds-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #3c2a52;
+  border-radius: 3px;
+}
+.worlds-scroll-container::-webkit-scrollbar-thumb:hover {
+  background-color: #9219F5;
+}

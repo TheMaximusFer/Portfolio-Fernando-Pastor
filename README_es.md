@@ -34,6 +34,7 @@ Bienvenido a mi portafolio. Este repositorio alberga una colección integral de 
 * **[EnderArchive (Plataforma Web)](./Web_EnderArchive_In_Development)**: Aplicación web completa con Spring Boot (Backend) y React/Vite (Frontend). *Incluye esquema de BD complejo y despliegue dockerizado.*
 * **[Prototipo UX GoPets](./GoPets_User_Interface_Project)**: Prototipo de experiencia de usuario de alta fidelidad y diseño de interfaz.
 * **[Paradigmas Comparados](./OOP-and-Functional-Programming_Samples)**: Soluciones algorítmicas comparando POO (Java/C++) vs Funcional (Haskell).
+* **[Aplicación Android de Reserva de Quads](https://github.com/TheMaximusFer/Portfolio-Fernando-Pastor/blob/main/Android_App_Quad-Bookings.zip)**: Aplicación nativa Android Full-Stack, desarrollada siguiendo estándares y patrones de diseño de ingeniería de software.
 
 ### ⚡ Hardware y Arquitectura de Computadores
 * **[Procesador MIPS Segmentado](./Computer-Architecture_Pipelined-MIPS-Processor_VHDL)**: Diseño completo en VHDL de una CPU MIPS de 5 etapas (pipeline) con unidades de Detección de Riesgos y Anticipación.
